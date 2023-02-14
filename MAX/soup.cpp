@@ -4,7 +4,7 @@ namespace soup {
 
 /*******************************************************************************************************************
 Cycling '74 License for Max-Generated Code for Export
-Copyright (c) 2016 Cycling '74
+Copyright (c) 2022 Cycling '74
 The code that Max generates automatically and that end users are capable of exporting and using, and any
   associated documentation files (the “Software”) is a work of authorship for which Cycling '74 is the author
   and owner for copyright purposes.  A license is hereby granted, free of charge, to any person obtaining a
@@ -33,16 +33,32 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 // The State struct contains all the state and procedures for the gendsp kernel
 typedef struct State {
 	CommonState __commonstate;
+	Phasor __m_phasor_3;
+	Phasor __m_phasor_5;
+	Phasor __m_phasor_1;
+	Phasor __m_phasor_7;
+	Sah __m_sah_4;
+	Sah __m_sah_6;
+	Sah __m_sah_8;
+	Sah __m_sah_2;
 	int __exception;
 	int vectorsize;
+	t_sample samples_to_seconds;
 	t_sample samplerate;
-	t_sample m_pot_1;
 	// re-initialize all member variables;
 	inline void reset(t_param __sr, int __vs) {
 		__exception = 0;
 		vectorsize = __vs;
 		samplerate = __sr;
-		m_pot_1 = ((int)0);
+		samples_to_seconds = (1 / samplerate);
+		__m_phasor_1.reset(0);
+		__m_sah_2.reset(0);
+		__m_phasor_3.reset(0.5);
+		__m_sah_4.reset(0);
+		__m_phasor_5.reset(0);
+		__m_sah_6.reset(0);
+		__m_phasor_7.reset(0.5);
+		__m_sah_8.reset(0);
 		genlib_reset_complete(this);
 		
 	};
@@ -61,14 +77,43 @@ typedef struct State {
 			return __exception;
 			
 		};
+		samples_to_seconds = (1 / samplerate);
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
-			t_sample noise_99 = noise();
-			t_sample mul_101 = (m_pot_1 * noise_99);
-			t_sample out1 = (mul_101 + in1);
-			t_sample out2 = (mul_101 + in2);
+			t_sample out2 = ((int)0);
+			if ((((int)0) != 0)) {
+				__m_phasor_1.phase = 0;
+				
+			};
+			t_sample phasor_1429 = __m_phasor_1(((int)2), samples_to_seconds);
+			t_sample sah_1438 = __m_sah_2(in1, phasor_1429, ((t_sample)0.5));
+			if ((((int)0) != 0)) {
+				__m_phasor_3.phase = 0.5;
+				
+			};
+			t_sample phasor_1428 = __m_phasor_3(((int)2), samples_to_seconds);
+			t_sample sah_1437 = __m_sah_4(in1, phasor_1428, ((t_sample)0.5));
+			t_sample sub_1436 = (sah_1438 - sah_1437);
+			t_sample pow_1435 = safepow(sub_1436, ((int)2));
+			if ((((int)0) != 0)) {
+				__m_phasor_5.phase = 0;
+				
+			};
+			t_sample phasor_1432 = __m_phasor_5(((int)2), samples_to_seconds);
+			t_sample sah_1444 = __m_sah_6(in2, phasor_1432, ((t_sample)0.5));
+			if ((((int)0) != 0)) {
+				__m_phasor_7.phase = 0.5;
+				
+			};
+			t_sample phasor_1430 = __m_phasor_7(((int)2), samples_to_seconds);
+			t_sample sah_1442 = __m_sah_8(in2, phasor_1430, ((t_sample)0.5));
+			t_sample sub_1440 = (sah_1444 - sah_1442);
+			t_sample pow_1439 = safepow(sub_1440, ((int)2));
+			t_sample add_1434 = (pow_1435 + pow_1439);
+			t_sample sqrt_1433 = sqrt(add_1434);
+			t_sample out1 = sqrt_1433;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
@@ -76,9 +121,6 @@ typedef struct State {
 		};
 		return __exception;
 		
-	};
-	inline void set_pot1(t_param _value) {
-		m_pot_1 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	
 } State;
@@ -95,7 +137,7 @@ int gen_kernel_numouts = 2;
 
 int num_inputs() { return gen_kernel_numins; }
 int num_outputs() { return gen_kernel_numouts; }
-int num_params() { return 1; }
+int num_params() { return 0; }
 
 /// Assistive lables for the signal inputs and outputs
 
@@ -121,7 +163,6 @@ void reset(CommonState *cself) {
 void setparameter(CommonState *cself, long index, t_param value, void *ref) {
 	State *self = (State *)cself;
 	switch (index) {
-		case 0: self->set_pot1(value); break;
 		
 		default: break;
 	}
@@ -132,7 +173,6 @@ void setparameter(CommonState *cself, long index, t_param value, void *ref) {
 void getparameter(CommonState *cself, long index, t_param *value) {
 	State *self = (State *)cself;
 	switch (index) {
-		case 0: *value = self->m_pot_1; break;
 		
 		default: break;
 	}
@@ -213,22 +253,8 @@ void *create(t_param sr, long vs) {
 	self->__commonstate.numouts = gen_kernel_numouts;
 	self->__commonstate.sr = sr;
 	self->__commonstate.vs = vs;
-	self->__commonstate.params = (ParamInfo *)genlib_sysmem_newptr(1 * sizeof(ParamInfo));
-	self->__commonstate.numparams = 1;
-	// initialize parameter 0 ("m_pot_1")
-	pi = self->__commonstate.params + 0;
-	pi->name = "pot1";
-	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_pot_1;
-	pi->defaultref = 0;
-	pi->hasinputminmax = false;
-	pi->inputmin = 0;
-	pi->inputmax = 1;
-	pi->hasminmax = true;
-	pi->outputmin = 0;
-	pi->outputmax = 1;
-	pi->exp = 0;
-	pi->units = "";		// no units defined
+	self->__commonstate.params = 0;
+	self->__commonstate.numparams = 0;
 	
 	return self;
 }
@@ -237,8 +263,7 @@ void *create(t_param sr, long vs) {
 
 void destroy(CommonState *cself) {
 	State *self = (State *)cself;
-	genlib_sysmem_freeptr(cself->params);
-		
+	
 	delete self;
 }
 
