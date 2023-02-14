@@ -1,0 +1,12 @@
+{
+	"name": "CMCU",
+	"som": "seed",
+	"audio": {"channels": 2},
+	"components": {
+		"pot1": {
+			"component": "AnalogControl",
+			"pin": 15
+		}
+	}
+}
+
