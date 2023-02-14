@@ -144,8 +144,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 608.0, 131.0, 150.0, 33.0 ],
-					"text" : "Mouse Tracker: Send it a Bang to Reset"
+					"patching_rect" : [ 598.0, 111.0, 150.0, 33.0 ],
+					"text" : "Mouse Tracker: \nSend it a Bang to Reset"
 				}
 
 			}
@@ -156,7 +156,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 129.0, 437.0, 150.0, 20.0 ],
+					"patching_rect" : [ 129.0, 478.0, 150.0, 20.0 ],
 					"text" : "Virtual Bowl (of Soup)"
 				}
 
@@ -170,7 +170,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
-					"patching_rect" : [ 129.0, 111.0, 324.0, 324.0 ],
+					"patching_rect" : [ 129.0, 111.0, 392.0, 392.0 ],
 					"pic" : "/Users/stelladrinkwater/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX/XY/circle.png"
 				}
 
@@ -195,8 +195,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 608.0, 174.0, 49.0, 22.0 ],
-					"text" : "metro 5"
+					"patching_rect" : [ 608.0, 174.0, 56.0, 22.0 ],
+					"text" : "metro 10"
 				}
 
 			}
@@ -220,7 +220,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 710.0, 266.0, 50.0, 22.0 ],
-					"text" : "305"
+					"text" : "197"
 				}
 
 			}
@@ -232,7 +232,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 653.0, 266.0, 50.0, 22.0 ],
-					"text" : "698"
+					"text" : "539"
 				}
 
 			}
