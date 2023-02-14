@@ -33,14 +33,24 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 // The State struct contains all the state and procedures for the gendsp kernel
 typedef struct State {
 	CommonState __commonstate;
+	Phasor __m_phasor_3;
+	Phasor __m_phasor_1;
+	Sah __m_sah_2;
+	Sah __m_sah_4;
 	int __exception;
 	int vectorsize;
 	t_sample samplerate;
+	t_sample samples_to_seconds;
 	// re-initialize all member variables;
 	inline void reset(t_param __sr, int __vs) {
 		__exception = 0;
 		vectorsize = __vs;
 		samplerate = __sr;
+		samples_to_seconds = (1 / samplerate);
+		__m_phasor_1.reset(0);
+		__m_sah_2.reset(0);
+		__m_phasor_3.reset(0.5);
+		__m_sah_4.reset(0);
 		genlib_reset_complete(this);
 		
 	};
@@ -57,11 +67,24 @@ typedef struct State {
 			return __exception;
 			
 		};
+		samples_to_seconds = (1 / samplerate);
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
-			t_sample noise_1341 = noise();
-			t_sample out1 = noise_1341;
+			if ((((int)0) != 0)) {
+				__m_phasor_1.phase = 0;
+				
+			};
+			t_sample phasor_1569 = __m_phasor_1(((int)1), samples_to_seconds);
+			t_sample sah_1572 = __m_sah_2(in1, phasor_1569, ((t_sample)0.5));
+			if ((((int)0) != 0)) {
+				__m_phasor_3.phase = 0.5;
+				
+			};
+			t_sample phasor_1570 = __m_phasor_3(((int)1), samples_to_seconds);
+			t_sample sah_1573 = __m_sah_4(in1, phasor_1570, ((t_sample)0.5));
+			t_sample sub_1574 = (sah_1572 - sah_1573);
+			t_sample out1 = sub_1574;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			

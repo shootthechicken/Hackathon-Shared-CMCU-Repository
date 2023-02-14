@@ -1,6 +1,6 @@
 {
 	"class": "Module",
-	"id": "node_2775",
+	"id": "node_70866",
 	"inlets": [
 		{
 			"assist": "in1",
@@ -27,135 +27,673 @@
 	},
 	"block": {
 		"class": "Block",
-		"id": "node_2801",
+		"id": "node_71000",
 		"children": [
 			{
-				"class": "Declaration",
-				"id": "node_2777",
-				"name": "pot1",
-				"inputs": [
-					{
-						"class": "Constant",
-						"id": "node_2778",
-						"value": "0",
-						"eval": 0,
-						"type": "constant int",
-						"source": "box: [param pot1 0] => pot1"
-					}
-				],
-				"attributes": {
-					
-				},
-				"type": "control t_sample",
-				"typename": "Param",
-				"source": "box: [param pot1 0] => pot1"
-			},
-			{
 				"class": "Statement",
-				"id": "node_2779",
+				"id": "node_70876",
 				"inputs": [
 					{
 						"class": "Expression",
-						"id": "node_2780",
-						"operator": "noise",
-						"inputs": {
-							
-						},
-						"attributes": {
-							
-						},
-						"type": "signal t_sample",
-						"source": "box: [noise] => noise_99"
-					}
-				],
-				"outputs": [
-					{
-						"class": "Variable",
-						"id": "node_2781",
-						"name": "noise_99",
-						"type": "signal t_sample",
-						"source": "box: [noise] => noise_99"
-					}
-				],
-				"source": "source: [gen $in1 @file noiseMaker] => gen_100 parent: box: [noise] => noise_99"
-			},
-			{
-				"class": "Statement",
-				"id": "node_2785",
-				"inputs": [
-					{
-						"class": "Expression",
-						"id": "node_2786",
-						"operator": "mul",
+						"id": "node_70877",
+						"operator": "phasor",
 						"inputs": [
 							{
-								"class": "Variable",
-								"id": "node_2787",
-								"name": "pot1",
-								"type": "control t_sample",
-								"source": "box: [mul $in1 $in2] => mul_101"
+								"class": "Constant",
+								"id": "node_71007",
+								"value": 2,
+								"eval": 2,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2] => phasor_1537"
 							},
 							{
-								"class": "Variable",
-								"id": "node_2802",
-								"name": "noise_99",
-								"type": "signal t_sample",
-								"source": "box: [mul $in1 $in2] => mul_101"
+								"class": "Constant",
+								"id": "node_70879",
+								"value": "0",
+								"eval": 0,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2] => phasor_1537"
 							}
 						],
 						"attributes": {
 							
 						},
 						"type": "signal t_sample",
-						"source": "box: [mul $in1 $in2] => mul_101"
+						"source": "box: [phasor $in1 $in2] => phasor_1537"
 					}
 				],
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_2789",
-						"name": "mul_101",
+						"id": "node_70880",
+						"name": "phasor_1537",
 						"type": "signal t_sample",
-						"source": "box: [mul $in1 $in2] => mul_101"
+						"source": "box: [phasor $in1 $in2] => phasor_1537"
 					}
 				],
-				"source": "box: [mul $in1 $in2] => mul_101"
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [phasor $in1 $in2] => phasor_1537"
 			},
 			{
 				"class": "Statement",
-				"id": "node_2790",
+				"id": "node_70881",
 				"inputs": [
 					{
 						"class": "Expression",
-						"id": "node_2791",
+						"id": "node_70882",
+						"operator": "sah",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70883",
+								"name": "in1",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1546"
+							},
+							{
+								"class": "Variable",
+								"id": "node_70884",
+								"name": "phasor_1537",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1546"
+							},
+							{
+								"class": "Constant",
+								"id": "node_71008",
+								"value": 0.5,
+								"eval": 0.5,
+								"type": "constant t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1546"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1546"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70886",
+						"name": "sah_1546",
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1546"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [sah $in1 $in2 $in3] => sah_1546"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70887",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70888",
+						"operator": "phasor",
+						"inputs": [
+							{
+								"class": "Constant",
+								"id": "node_71009",
+								"value": 2,
+								"eval": 2,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1536"
+							},
+							{
+								"class": "Constant",
+								"id": "node_70890",
+								"value": "0",
+								"eval": 0,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1536"
+							}
+						],
+						"attributes": {
+							"phase": {
+								"class": "Attribute",
+								"id": "node_70891",
+								"name": "phase",
+								"value": {
+									"class": "Constant",
+									"id": "node_65434",
+									"value": "0.5",
+									"eval": 0.5,
+									"type": "constant t_sample",
+									"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1536"
+								},
+								"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1536"
+							}
+						},
+						"type": "signal t_sample",
+						"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1536"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70892",
+						"name": "phasor_1536",
+						"type": "signal t_sample",
+						"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1536"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [phasor $in1 $in2 @phase 0.5] => phasor_1536"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70893",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70894",
+						"operator": "sah",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70895",
+								"name": "in1",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1545"
+							},
+							{
+								"class": "Variable",
+								"id": "node_70896",
+								"name": "phasor_1536",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1545"
+							},
+							{
+								"class": "Constant",
+								"id": "node_71010",
+								"value": 0.5,
+								"eval": 0.5,
+								"type": "constant t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1545"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1545"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70898",
+						"name": "sah_1545",
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1545"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [sah $in1 $in2 $in3] => sah_1545"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70899",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70900",
+						"operator": "sub",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70901",
+								"name": "sah_1546",
+								"type": "signal t_sample",
+								"source": "box: [sub $in1 $in2] => sub_1544"
+							},
+							{
+								"class": "Variable",
+								"id": "node_70902",
+								"name": "sah_1545",
+								"type": "signal t_sample",
+								"source": "box: [sub $in1 $in2] => sub_1544"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sub $in1 $in2] => sub_1544"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70903",
+						"name": "sub_1544",
+						"type": "signal t_sample",
+						"source": "box: [sub $in1 $in2] => sub_1544"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [sub $in1 $in2] => sub_1544"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70904",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70905",
+						"operator": "pow",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70906",
+								"name": "sub_1544",
+								"type": "signal t_sample",
+								"source": "box: [pow $in1 2] => pow_1543"
+							},
+							{
+								"class": "Constant",
+								"id": "node_70907",
+								"value": "2",
+								"eval": 2,
+								"type": "signal int",
+								"source": "box: [pow $in1 2] => pow_1543"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [pow $in1 2] => pow_1543"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70908",
+						"name": "pow_1543",
+						"type": "signal t_sample",
+						"source": "box: [pow $in1 2] => pow_1543"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [pow $in1 2] => pow_1543"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70909",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70910",
+						"operator": "phasor",
+						"inputs": [
+							{
+								"class": "Constant",
+								"id": "node_71011",
+								"value": 2,
+								"eval": 2,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2] => phasor_1540"
+							},
+							{
+								"class": "Constant",
+								"id": "node_70912",
+								"value": "0",
+								"eval": 0,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2] => phasor_1540"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [phasor $in1 $in2] => phasor_1540"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70913",
+						"name": "phasor_1540",
+						"type": "signal t_sample",
+						"source": "box: [phasor $in1 $in2] => phasor_1540"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [phasor $in1 $in2] => phasor_1540"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70914",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70915",
+						"operator": "sah",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70916",
+								"name": "in2",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1550"
+							},
+							{
+								"class": "Variable",
+								"id": "node_70917",
+								"name": "phasor_1540",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1550"
+							},
+							{
+								"class": "Constant",
+								"id": "node_71012",
+								"value": 0.5,
+								"eval": 0.5,
+								"type": "constant t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1550"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1550"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70919",
+						"name": "sah_1550",
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1550"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [sah $in1 $in2 $in3] => sah_1550"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70920",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70921",
+						"operator": "phasor",
+						"inputs": [
+							{
+								"class": "Constant",
+								"id": "node_71013",
+								"value": 2,
+								"eval": 2,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1538"
+							},
+							{
+								"class": "Constant",
+								"id": "node_70923",
+								"value": "0",
+								"eval": 0,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1538"
+							}
+						],
+						"attributes": {
+							"phase": {
+								"class": "Attribute",
+								"id": "node_70924",
+								"name": "phase",
+								"value": {
+									"class": "Constant",
+									"id": "node_65468",
+									"value": "0.5",
+									"eval": 0.5,
+									"type": "constant t_sample",
+									"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1538"
+								},
+								"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1538"
+							}
+						},
+						"type": "signal t_sample",
+						"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1538"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70925",
+						"name": "phasor_1538",
+						"type": "signal t_sample",
+						"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1538"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [phasor $in1 $in2 @phase 0.5] => phasor_1538"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70926",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70927",
+						"operator": "sah",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70928",
+								"name": "in2",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1549"
+							},
+							{
+								"class": "Variable",
+								"id": "node_70929",
+								"name": "phasor_1538",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1549"
+							},
+							{
+								"class": "Constant",
+								"id": "node_71014",
+								"value": 0.5,
+								"eval": 0.5,
+								"type": "constant t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1549"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1549"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70931",
+						"name": "sah_1549",
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1549"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [sah $in1 $in2 $in3] => sah_1549"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70932",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70933",
+						"operator": "sub",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70934",
+								"name": "sah_1550",
+								"type": "signal t_sample",
+								"source": "box: [sub $in1 $in2] => sub_1548"
+							},
+							{
+								"class": "Variable",
+								"id": "node_70935",
+								"name": "sah_1549",
+								"type": "signal t_sample",
+								"source": "box: [sub $in1 $in2] => sub_1548"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sub $in1 $in2] => sub_1548"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70936",
+						"name": "sub_1548",
+						"type": "signal t_sample",
+						"source": "box: [sub $in1 $in2] => sub_1548"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [sub $in1 $in2] => sub_1548"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70937",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70938",
+						"operator": "pow",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70939",
+								"name": "sub_1548",
+								"type": "signal t_sample",
+								"source": "box: [pow $in1 2] => pow_1547"
+							},
+							{
+								"class": "Constant",
+								"id": "node_70940",
+								"value": "2",
+								"eval": 2,
+								"type": "signal int",
+								"source": "box: [pow $in1 2] => pow_1547"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [pow $in1 2] => pow_1547"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70941",
+						"name": "pow_1547",
+						"type": "signal t_sample",
+						"source": "box: [pow $in1 2] => pow_1547"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [pow $in1 2] => pow_1547"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70942",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70943",
 						"operator": "add",
 						"inputs": [
 							{
 								"class": "Variable",
-								"id": "node_2792",
-								"name": "mul_101",
+								"id": "node_70944",
+								"name": "pow_1543",
 								"type": "signal t_sample",
-								"source": "join: [out 1 $in1] =>  1"
+								"source": "box: [add $in1 $in2] => add_1542"
 							},
 							{
 								"class": "Variable",
-								"id": "node_2793",
-								"name": "in1",
+								"id": "node_70945",
+								"name": "pow_1547",
 								"type": "signal t_sample",
-								"source": "join: [out 1 $in1] =>  1"
+								"source": "box: [add $in1 $in2] => add_1542"
 							}
 						],
 						"attributes": {
 							
 						},
 						"type": "signal t_sample",
-						"source": "join: [out 1 $in1] =>  1"
+						"source": "box: [add $in1 $in2] => add_1542"
 					}
 				],
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_2794",
+						"id": "node_70946",
+						"name": "add_1542",
+						"type": "signal t_sample",
+						"source": "box: [add $in1 $in2] => add_1542"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [add $in1 $in2] => add_1542"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70947",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70948",
+						"operator": "sqrt",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70949",
+								"name": "add_1542",
+								"type": "signal t_sample",
+								"source": "box: [sqrt $in1] => sqrt_1541"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sqrt $in1] => sqrt_1541"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70950",
+						"name": "sqrt_1541",
+						"type": "signal t_sample",
+						"source": "box: [sqrt $in1] => sqrt_1541"
+					}
+				],
+				"source": "source: [gen $in1 $in2 @file xyToDistance] => gen_1551 parent: box: [sqrt $in1] => sqrt_1541"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70954",
+				"inputs": [
+					{
+						"class": "Variable",
+						"id": "node_71001",
+						"name": "sqrt_1541",
+						"type": "signal t_sample",
+						"source": "box: [out 1 $in1] => "
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70956",
 						"name": "out1",
 						"type": "signal t_sample",
 						"source": "box: [out 1 $in1] => "
@@ -165,39 +703,263 @@
 			},
 			{
 				"class": "Statement",
-				"id": "node_2795",
+				"id": "node_70965",
 				"inputs": [
 					{
 						"class": "Expression",
-						"id": "node_2796",
-						"operator": "add",
+						"id": "node_70966",
+						"operator": "phasor",
 						"inputs": [
 							{
-								"class": "Variable",
-								"id": "node_2797",
-								"name": "mul_101",
-								"type": "signal t_sample",
-								"source": "join: [out 2 $in1] =>  1"
+								"class": "Constant",
+								"id": "node_71017",
+								"value": 1,
+								"eval": 1,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2] => phasor_1580"
 							},
 							{
-								"class": "Variable",
-								"id": "node_2798",
-								"name": "in2",
-								"type": "signal t_sample",
-								"source": "join: [out 2 $in1] =>  1"
+								"class": "Constant",
+								"id": "node_70968",
+								"value": "0",
+								"eval": 0,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2] => phasor_1580"
 							}
 						],
 						"attributes": {
 							
 						},
 						"type": "signal t_sample",
-						"source": "join: [out 2 $in1] =>  1"
+						"source": "box: [phasor $in1 $in2] => phasor_1580"
 					}
 				],
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_2799",
+						"id": "node_70969",
+						"name": "phasor_1580",
+						"type": "signal t_sample",
+						"source": "box: [phasor $in1 $in2] => phasor_1580"
+					}
+				],
+				"source": "source: [gen $in1 @file changeInDistance] => gen_1582 parent: box: [phasor $in1 $in2] => phasor_1580"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70970",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70971",
+						"operator": "sah",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_71002",
+								"name": "sqrt_1541",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1577"
+							},
+							{
+								"class": "Variable",
+								"id": "node_70973",
+								"name": "phasor_1580",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1577"
+							},
+							{
+								"class": "Constant",
+								"id": "node_71018",
+								"value": 0.5,
+								"eval": 0.5,
+								"type": "constant t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1577"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1577"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70975",
+						"name": "sah_1577",
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1577"
+					}
+				],
+				"source": "source: [gen $in1 @file changeInDistance] => gen_1582 parent: box: [sah $in1 $in2 $in3] => sah_1577"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70976",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70977",
+						"operator": "phasor",
+						"inputs": [
+							{
+								"class": "Constant",
+								"id": "node_71019",
+								"value": 1,
+								"eval": 1,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1579"
+							},
+							{
+								"class": "Constant",
+								"id": "node_70979",
+								"value": "0",
+								"eval": 0,
+								"type": "signal int",
+								"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1579"
+							}
+						],
+						"attributes": {
+							"phase": {
+								"class": "Attribute",
+								"id": "node_70980",
+								"name": "phase",
+								"value": {
+									"class": "Constant",
+									"id": "node_69336",
+									"value": "0.5",
+									"eval": 0.5,
+									"type": "constant t_sample",
+									"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1579"
+								},
+								"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1579"
+							}
+						},
+						"type": "signal t_sample",
+						"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1579"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70981",
+						"name": "phasor_1579",
+						"type": "signal t_sample",
+						"source": "box: [phasor $in1 $in2 @phase 0.5] => phasor_1579"
+					}
+				],
+				"source": "source: [gen $in1 @file changeInDistance] => gen_1582 parent: box: [phasor $in1 $in2 @phase 0.5] => phasor_1579"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70982",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70983",
+						"operator": "sah",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_71003",
+								"name": "sqrt_1541",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1576"
+							},
+							{
+								"class": "Variable",
+								"id": "node_70985",
+								"name": "phasor_1579",
+								"type": "signal t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1576"
+							},
+							{
+								"class": "Constant",
+								"id": "node_71020",
+								"value": 0.5,
+								"eval": 0.5,
+								"type": "constant t_sample",
+								"source": "box: [sah $in1 $in2 $in3] => sah_1576"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1576"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70987",
+						"name": "sah_1576",
+						"type": "signal t_sample",
+						"source": "box: [sah $in1 $in2 $in3] => sah_1576"
+					}
+				],
+				"source": "source: [gen $in1 @file changeInDistance] => gen_1582 parent: box: [sah $in1 $in2 $in3] => sah_1576"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70988",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_70989",
+						"operator": "sub",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_70990",
+								"name": "sah_1577",
+								"type": "signal t_sample",
+								"source": "box: [sub $in1 $in2] => sub_1575"
+							},
+							{
+								"class": "Variable",
+								"id": "node_70991",
+								"name": "sah_1576",
+								"type": "signal t_sample",
+								"source": "box: [sub $in1 $in2] => sub_1575"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [sub $in1 $in2] => sub_1575"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70992",
+						"name": "sub_1575",
+						"type": "signal t_sample",
+						"source": "box: [sub $in1 $in2] => sub_1575"
+					}
+				],
+				"source": "source: [gen $in1 @file changeInDistance] => gen_1582 parent: box: [sub $in1 $in2] => sub_1575"
+			},
+			{
+				"class": "Statement",
+				"id": "node_70996",
+				"inputs": [
+					{
+						"class": "Variable",
+						"id": "node_71004",
+						"name": "sub_1575",
+						"type": "signal t_sample",
+						"source": "box: [out 2 $in1] => "
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_70998",
 						"name": "out2",
 						"type": "signal t_sample",
 						"source": "box: [out 2 $in1] => "
@@ -207,5 +969,5 @@
 			}
 		]
 	},
-	"source": "patcher: gen.patcher 0x13060c050 graph 0x600002d10630"
+	"source": "patcher: gen.patcher 0x13518f6a0 graph 0x6000087d3570"
 }
