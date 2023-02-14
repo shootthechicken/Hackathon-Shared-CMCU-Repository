@@ -1,0 +1,211 @@
+{
+	"class": "Module",
+	"id": "node_42128",
+	"inlets": [
+		{
+			"assist": "in1",
+			"default": 0
+		},
+		{
+			"assist": "in2",
+			"default": 0
+		}
+	],
+	"outlets": [
+		{
+			"assist": "out1"
+		},
+		{
+			"assist": "out2"
+		}
+	],
+	"imports": {
+		
+	},
+	"functions": {
+		
+	},
+	"block": {
+		"class": "Block",
+		"id": "node_42154",
+		"children": [
+			{
+				"class": "Declaration",
+				"id": "node_42130",
+				"name": "pot1",
+				"inputs": [
+					{
+						"class": "Constant",
+						"id": "node_42131",
+						"value": "0",
+						"eval": 0,
+						"type": "signal int",
+						"source": "box: [param pot1 0] => pot1"
+					}
+				],
+				"attributes": {
+					
+				},
+				"type": "control t_sample",
+				"typename": "Param",
+				"source": "box: [param pot1 0] => pot1"
+			},
+			{
+				"class": "Statement",
+				"id": "node_42132",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_42133",
+						"operator": "noise",
+						"inputs": {
+							
+						},
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [noise] => noise_1342"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_42134",
+						"name": "noise_1342",
+						"type": "signal t_sample",
+						"source": "box: [noise] => noise_1342"
+					}
+				],
+				"source": "source: [gen $in1 @file noiseMaker] => gen_1343 parent: box: [noise] => noise_1342"
+			},
+			{
+				"class": "Statement",
+				"id": "node_42138",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_42139",
+						"operator": "mul",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_42140",
+								"name": "pot1",
+								"type": "control t_sample",
+								"source": "box: [mul $in1 $in2] => mul_1339"
+							},
+							{
+								"class": "Variable",
+								"id": "node_42155",
+								"name": "noise_1342",
+								"type": "signal t_sample",
+								"source": "box: [mul $in1 $in2] => mul_1339"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [mul $in1 $in2] => mul_1339"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_42142",
+						"name": "mul_1339",
+						"type": "signal t_sample",
+						"source": "box: [mul $in1 $in2] => mul_1339"
+					}
+				],
+				"source": "box: [mul $in1 $in2] => mul_1339"
+			},
+			{
+				"class": "Statement",
+				"id": "node_42143",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_42144",
+						"operator": "add",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_42145",
+								"name": "mul_1339",
+								"type": "signal t_sample",
+								"source": "join: [out 2 $in1] =>  1"
+							},
+							{
+								"class": "Variable",
+								"id": "node_42146",
+								"name": "in2",
+								"type": "signal t_sample",
+								"source": "join: [out 2 $in1] =>  1"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "join: [out 2 $in1] =>  1"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_42147",
+						"name": "out2",
+						"type": "signal t_sample",
+						"source": "box: [out 2 $in1] => "
+					}
+				],
+				"source": "box: [out 2 $in1] => "
+			},
+			{
+				"class": "Statement",
+				"id": "node_42148",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_42149",
+						"operator": "add",
+						"inputs": [
+							{
+								"class": "Variable",
+								"id": "node_42150",
+								"name": "mul_1339",
+								"type": "signal t_sample",
+								"source": "join: [out 1 $in1] =>  1"
+							},
+							{
+								"class": "Variable",
+								"id": "node_42151",
+								"name": "in1",
+								"type": "signal t_sample",
+								"source": "join: [out 1 $in1] =>  1"
+							}
+						],
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "join: [out 1 $in1] =>  1"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_42152",
+						"name": "out1",
+						"type": "signal t_sample",
+						"source": "box: [out 1 $in1] => "
+					}
+				],
+				"source": "box: [out 1 $in1] => "
+			}
+		]
+	},
+	"source": "patcher: gen.patcher 0x1351e55c0 graph 0x60000874ebd0"
+}

@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 5,
-			"revision" : 2,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 429.0, 121.0, 640.0, 480.0 ],
+		"rect" : [ 152.0, 112.0, 640.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -107,7 +107,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 5,
-							"revision" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -143,13 +143,13 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
-									"id" : "obj-10",
+									"id" : "obj-6",
 									"maxclass" : "newobj",
-									"numinlets" : 0,
+									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 78.0, 192.0, 37.0, 22.0 ],
-									"text" : "noise"
+									"patching_rect" : [ 199.0, 149.0, 71.0, 22.0 ],
+									"text" : "noiseMaker"
 								}
 
 							}
@@ -233,15 +233,15 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-9", 1 ],
-									"source" : [ "obj-10", 0 ]
+									"destination" : [ "obj-5", 0 ],
+									"source" : [ "obj-2", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-5", 0 ],
-									"source" : [ "obj-2", 0 ]
+									"destination" : [ "obj-9", 1 ],
+									"source" : [ "obj-6", 0 ]
 								}
 
 							}
@@ -273,23 +273,12 @@
 ,
 					"patching_rect" : [ 13.0, 261.0, 88.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"exportfolder" : "LEGACY:/Users/tony/Documents/Max 8/Packages/oopsy/help/",
-						"exportname" : "oopsy_test_2emaxhelp"
+						"exportfolder" : "Macintosh HD:/Users/mckinley/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max/",
+						"exportname" : "soup"
 					}
 ,
 					"text" : "gen~",
-					"varname" : "oopsy_test_2emaxhelp"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-4",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 48.0, 123.0, 20.0 ],
-					"text" : "Daisy from gen~"
+					"varname" : "soup"
 				}
 
 			}
@@ -302,7 +291,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 13.0, 13.0, 123.0, 33.0 ],
-					"text" : "Oopsy"
+					"text" : "SOUP!"
 				}
 
 			}
@@ -320,23 +309,30 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "noiseMaker.gendsp",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
+				"patcherrelativepath" : ".",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "oopsy.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/patchers",
-				"patcherrelativepath" : "../patchers",
+				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "oopsy.node4max.js",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/javascript",
-				"patcherrelativepath" : "../javascript",
+				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/javascript",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "oopsy.snoop.js",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/javascript",
-				"patcherrelativepath" : "../javascript",
+				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/javascript",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
