@@ -4,16 +4,16 @@
 	"audio": {"channels": 2},
 	"components": {
 		"JoySwitch": {
-			"component": "Switch",
-			"pin": 28
+			"component": "AnalogControl",
+			"pin": 15
 		},
 		"JoyX": {
 			"component": "AnalogControl",
-			"pin": 29
+			"pin": 16
 		},
 		"JoyY": {
 			"component": "AnalogControl",
-			"pin": 30
+			"pin": 17
 		}
 	}
 }
