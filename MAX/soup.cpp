@@ -134,7 +134,8 @@ typedef struct State {
 			t_sample phasor_1579 = __m_phasor_11(((int)1), samples_to_seconds);
 			t_sample sah_1576 = __m_sah_12(sqrt_1541, phasor_1579, ((t_sample)0.5));
 			t_sample sub_1575 = (sah_1577 - sah_1576);
-			t_sample out2 = sub_1575;
+			t_sample abs_1583 = fabs(sub_1575);
+			t_sample out2 = abs_1583;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
