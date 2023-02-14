@@ -33,18 +33,22 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 // The State struct contains all the state and procedures for the gendsp kernel
 typedef struct State {
 	CommonState __commonstate;
+	Phasor __m_phasor_1;
 	Phasor __m_phasor_3;
 	Phasor __m_phasor_5;
-	Phasor __m_phasor_1;
+	Phasor __m_phasor_9;
+	Phasor __m_phasor_11;
 	Phasor __m_phasor_7;
-	Sah __m_sah_4;
-	Sah __m_sah_6;
+	Sah __m_sah_12;
+	Sah __m_sah_10;
 	Sah __m_sah_8;
+	Sah __m_sah_6;
+	Sah __m_sah_4;
 	Sah __m_sah_2;
 	int __exception;
 	int vectorsize;
-	t_sample samples_to_seconds;
 	t_sample samplerate;
+	t_sample samples_to_seconds;
 	// re-initialize all member variables;
 	inline void reset(t_param __sr, int __vs) {
 		__exception = 0;
@@ -59,6 +63,10 @@ typedef struct State {
 		__m_sah_6.reset(0);
 		__m_phasor_7.reset(0.5);
 		__m_sah_8.reset(0);
+		__m_phasor_9.reset(0.1);
+		__m_sah_10.reset(0);
+		__m_phasor_11.reset(0.6);
+		__m_sah_12.reset(0);
 		genlib_reset_complete(this);
 		
 	};
@@ -82,38 +90,52 @@ typedef struct State {
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
-			t_sample out2 = ((int)0);
 			if ((((int)0) != 0)) {
 				__m_phasor_1.phase = 0;
 				
 			};
-			t_sample phasor_1429 = __m_phasor_1(((int)2), samples_to_seconds);
-			t_sample sah_1438 = __m_sah_2(in1, phasor_1429, ((t_sample)0.5));
+			t_sample phasor_1466 = __m_phasor_1(((int)2), samples_to_seconds);
+			t_sample sah_1475 = __m_sah_2(in1, phasor_1466, ((t_sample)0.5));
 			if ((((int)0) != 0)) {
 				__m_phasor_3.phase = 0.5;
 				
 			};
-			t_sample phasor_1428 = __m_phasor_3(((int)2), samples_to_seconds);
-			t_sample sah_1437 = __m_sah_4(in1, phasor_1428, ((t_sample)0.5));
-			t_sample sub_1436 = (sah_1438 - sah_1437);
-			t_sample pow_1435 = safepow(sub_1436, ((int)2));
+			t_sample phasor_1465 = __m_phasor_3(((int)2), samples_to_seconds);
+			t_sample sah_1474 = __m_sah_4(in1, phasor_1465, ((t_sample)0.5));
+			t_sample sub_1473 = (sah_1475 - sah_1474);
+			t_sample pow_1472 = safepow(sub_1473, ((int)2));
 			if ((((int)0) != 0)) {
 				__m_phasor_5.phase = 0;
 				
 			};
-			t_sample phasor_1432 = __m_phasor_5(((int)2), samples_to_seconds);
-			t_sample sah_1444 = __m_sah_6(in2, phasor_1432, ((t_sample)0.5));
+			t_sample phasor_1469 = __m_phasor_5(((int)2), samples_to_seconds);
+			t_sample sah_1479 = __m_sah_6(in2, phasor_1469, ((t_sample)0.5));
 			if ((((int)0) != 0)) {
 				__m_phasor_7.phase = 0.5;
 				
 			};
-			t_sample phasor_1430 = __m_phasor_7(((int)2), samples_to_seconds);
-			t_sample sah_1442 = __m_sah_8(in2, phasor_1430, ((t_sample)0.5));
-			t_sample sub_1440 = (sah_1444 - sah_1442);
-			t_sample pow_1439 = safepow(sub_1440, ((int)2));
-			t_sample add_1434 = (pow_1435 + pow_1439);
-			t_sample sqrt_1433 = sqrt(add_1434);
-			t_sample out1 = sqrt_1433;
+			t_sample phasor_1467 = __m_phasor_7(((int)2), samples_to_seconds);
+			t_sample sah_1478 = __m_sah_8(in2, phasor_1467, ((t_sample)0.5));
+			t_sample sub_1477 = (sah_1479 - sah_1478);
+			t_sample pow_1476 = safepow(sub_1477, ((int)2));
+			t_sample add_1471 = (pow_1472 + pow_1476);
+			t_sample sqrt_1470 = sqrt(add_1471);
+			t_sample out1 = sqrt_1470;
+			if ((((int)0) != 0)) {
+				__m_phasor_9.phase = 0.1;
+				
+			};
+			t_sample phasor_1499 = __m_phasor_9(((int)1), samples_to_seconds);
+			t_sample sah_1497 = __m_sah_10(sqrt_1470, phasor_1499, ((t_sample)0.5));
+			if ((((int)0) != 0)) {
+				__m_phasor_11.phase = 0.6;
+				
+			};
+			t_sample phasor_1498 = __m_phasor_11(((int)1), samples_to_seconds);
+			t_sample sah_1496 = __m_sah_12(sqrt_1470, phasor_1498, ((t_sample)0.5));
+			t_sample sub_1494 = (sah_1497 - sah_1496);
+			t_sample abs_1502 = fabs(sub_1494);
+			t_sample out2 = abs_1502;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;

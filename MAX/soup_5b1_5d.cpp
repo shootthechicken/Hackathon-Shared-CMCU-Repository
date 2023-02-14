@@ -60,8 +60,7 @@ typedef struct State {
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
-			t_sample noise_1341 = noise();
-			t_sample out1 = noise_1341;
+			t_sample out1 = ((int)0);
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			

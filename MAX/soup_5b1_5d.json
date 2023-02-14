@@ -1,6 +1,6 @@
 {
 	"class": "Module",
-	"id": "node_42108",
+	"id": "node_64793",
 	"inlets": {
 		
 	},
@@ -17,53 +17,25 @@
 	},
 	"block": {
 		"class": "Block",
-		"id": "node_42117",
+		"id": "node_64799",
 		"children": [
 			{
 				"class": "Statement",
-				"id": "node_42110",
+				"id": "node_64795",
 				"inputs": [
 					{
-						"class": "Expression",
-						"id": "node_42111",
-						"operator": "noise",
-						"inputs": {
-							
-						},
-						"attributes": {
-							
-						},
-						"type": "signal t_sample",
-						"source": "box: [noise] => noise_1341"
-					}
-				],
-				"outputs": [
-					{
-						"class": "Variable",
-						"id": "node_42112",
-						"name": "noise_1341",
-						"type": "signal t_sample",
-						"source": "box: [noise] => noise_1341"
-					}
-				],
-				"source": "box: [noise] => noise_1341"
-			},
-			{
-				"class": "Statement",
-				"id": "node_42113",
-				"inputs": [
-					{
-						"class": "Variable",
-						"id": "node_42114",
-						"name": "noise_1341",
-						"type": "signal t_sample",
+						"class": "Constant",
+						"id": "node_64796",
+						"value": "0",
+						"eval": 0,
+						"type": "signal int",
 						"source": "box: [out 1 $in1] => "
 					}
 				],
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_42115",
+						"id": "node_64797",
 						"name": "out1",
 						"type": "signal t_sample",
 						"source": "box: [out 1 $in1] => "
@@ -73,5 +45,5 @@
 			}
 		]
 	},
-	"source": "patcher: gen.patcher 0x12be30880 graph 0x60000c7e1580"
+	"source": "patcher: gen.patcher 0x10adfdb80 graph 0x60000c791510"
 }
