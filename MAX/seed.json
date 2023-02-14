@@ -1,11 +1,19 @@
 {
-	"name": "CMCU",
+	"name": "seed",
 	"som": "seed",
 	"audio": {"channels": 2},
 	"components": {
-		"pot1": {
+		"JoySwitch": {
+			"component": "Switch",
+			"pin": 28
+		},
+		"JoyX": {
 			"component": "AnalogControl",
-			"pin": 15
+			"pin": 29
+		},
+		"JoyY": {
+			"component": "AnalogControl",
+			"pin": 30
 		}
 	}
 }
