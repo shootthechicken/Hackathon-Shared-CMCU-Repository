@@ -113,8 +113,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 191.0, 111.0, 93.0, 22.0 ],
-									"text" : "noiseMakerGen"
+									"patching_rect" : [ 191.0, 111.0, 71.0, 22.0 ],
+									"text" : "noiseMaker"
 								}
 
 							}
@@ -153,7 +153,7 @@
 			}
  ],
 		"dependency_cache" : [ 			{
-				"name" : "noiseMakerGen.gendsp",
+				"name" : "noiseMaker.gendsp",
 				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
