@@ -40,6 +40,68 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"comment" : "",
+					"id" : "obj-8",
+					"index" : 0,
+					"maxclass" : "outlet",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 841.0, 297.0, 30.0, 30.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"comment" : "",
+					"id" : "obj-7",
+					"index" : 0,
+					"maxclass" : "outlet",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 772.0, 297.0, 30.0, 30.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"comment" : "",
+					"id" : "obj-6",
+					"index" : 0,
+					"maxclass" : "outlet",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 710.0, 297.0, 30.0, 30.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"comment" : "",
+					"id" : "obj-3",
+					"index" : 0,
+					"maxclass" : "outlet",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 653.0, 297.0, 30.0, 30.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"autofit" : 1,
+					"forceaspect" : 1,
+					"id" : "obj-1",
+					"maxclass" : "fpic",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "jit_matrix" ],
+					"patching_rect" : [ 111.0, 75.0, 430.0, 430.0 ],
+					"pic" : "/Users/stelladrinkwater/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX/circle.png"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-65",
 					"maxclass" : "number",
 					"numinlets" : 1,
@@ -69,8 +131,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 841.0, 297.0, 65.0, 20.0 ],
-					"presentation_linecount" : 2,
+					"patching_rect" : [ 840.0, 341.0, 65.0, 20.0 ],
 					"text" : "Y Speed"
 				}
 
@@ -82,8 +143,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 772.0, 297.0, 62.0, 20.0 ],
-					"presentation_linecount" : 2,
+					"patching_rect" : [ 771.0, 341.0, 62.0, 20.0 ],
 					"text" : "X Speed"
 				}
 
@@ -119,7 +179,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 715.0, 297.0, 50.0, 20.0 ],
+					"patching_rect" : [ 714.0, 341.0, 50.0, 20.0 ],
 					"text" : "Y"
 				}
 
@@ -131,7 +191,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 654.0, 297.0, 54.0, 20.0 ],
+					"patching_rect" : [ 653.0, 341.0, 54.0, 20.0 ],
 					"text" : "X"
 				}
 
@@ -158,20 +218,6 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 129.0, 478.0, 150.0, 20.0 ],
 					"text" : "Virtual Bowl (of Soup)"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"autofit" : 1,
-					"forceaspect" : 1,
-					"id" : "obj-41",
-					"maxclass" : "fpic",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "jit_matrix" ],
-					"patching_rect" : [ 129.0, 111.0, 392.0, 392.0 ],
-					"pic" : "/Users/stelladrinkwater/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX/XY/circle.png"
 				}
 
 			}
@@ -274,6 +320,20 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
 					"source" : [ "obj-57", 0 ]
 				}
@@ -295,10 +355,24 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-64", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-65", 0 ]
+				}
+
+			}
  ],
 		"dependency_cache" : [ 			{
 				"name" : "circle.png",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX/XY",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "PNG",
 				"implicit" : 1

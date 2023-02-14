@@ -4,7 +4,7 @@ namespace soup {
 
 /*******************************************************************************************************************
 Cycling '74 License for Max-Generated Code for Export
-Copyright (c) 2022 Cycling '74
+Copyright (c) 2016 Cycling '74
 The code that Max generates automatically and that end users are capable of exporting and using, and any
   associated documentation files (the “Software”) is a work of authorship for which Cycling '74 is the author
   and owner for copyright purposes.  A license is hereby granted, free of charge, to any person obtaining a
@@ -65,10 +65,10 @@ typedef struct State {
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
-			t_sample noise_1342 = noise();
-			t_sample mul_1339 = (m_pot_1 * noise_1342);
-			t_sample out2 = (mul_1339 + in2);
-			t_sample out1 = (mul_1339 + in1);
+			t_sample noise_99 = noise();
+			t_sample mul_101 = (m_pot_1 * noise_99);
+			t_sample out1 = (mul_101 + in1);
+			t_sample out2 = (mul_101 + in2);
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
