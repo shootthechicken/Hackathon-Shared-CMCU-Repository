@@ -1,0 +1,77 @@
+{
+	"class": "Module",
+	"id": "node_42108",
+	"inlets": {
+		
+	},
+	"outlets": [
+		{
+			"assist": "out1"
+		}
+	],
+	"imports": {
+		
+	},
+	"functions": {
+		
+	},
+	"block": {
+		"class": "Block",
+		"id": "node_42117",
+		"children": [
+			{
+				"class": "Statement",
+				"id": "node_42110",
+				"inputs": [
+					{
+						"class": "Expression",
+						"id": "node_42111",
+						"operator": "noise",
+						"inputs": {
+							
+						},
+						"attributes": {
+							
+						},
+						"type": "signal t_sample",
+						"source": "box: [noise] => noise_1341"
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_42112",
+						"name": "noise_1341",
+						"type": "signal t_sample",
+						"source": "box: [noise] => noise_1341"
+					}
+				],
+				"source": "box: [noise] => noise_1341"
+			},
+			{
+				"class": "Statement",
+				"id": "node_42113",
+				"inputs": [
+					{
+						"class": "Variable",
+						"id": "node_42114",
+						"name": "noise_1341",
+						"type": "signal t_sample",
+						"source": "box: [out 1 $in1] => "
+					}
+				],
+				"outputs": [
+					{
+						"class": "Variable",
+						"id": "node_42115",
+						"name": "out1",
+						"type": "signal t_sample",
+						"source": "box: [out 1 $in1] => "
+					}
+				],
+				"source": "box: [out 1 $in1] => "
+			}
+		]
+	},
+	"source": "patcher: gen.patcher 0x12be30880 graph 0x60000c7e1580"
+}
