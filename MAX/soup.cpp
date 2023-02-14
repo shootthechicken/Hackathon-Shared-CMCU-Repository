@@ -63,9 +63,9 @@ typedef struct State {
 		__m_sah_6.reset(0);
 		__m_phasor_7.reset(0.5);
 		__m_sah_8.reset(0);
-		__m_phasor_9.reset(0.1);
+		__m_phasor_9.reset(0);
 		__m_sah_10.reset(0);
-		__m_phasor_11.reset(0.6);
+		__m_phasor_11.reset(0.5);
 		__m_sah_12.reset(0);
 		genlib_reset_complete(this);
 		
@@ -94,48 +94,47 @@ typedef struct State {
 				__m_phasor_1.phase = 0;
 				
 			};
-			t_sample phasor_1466 = __m_phasor_1(((int)2), samples_to_seconds);
-			t_sample sah_1475 = __m_sah_2(in1, phasor_1466, ((t_sample)0.5));
+			t_sample phasor_1537 = __m_phasor_1(((int)2), samples_to_seconds);
+			t_sample sah_1546 = __m_sah_2(in1, phasor_1537, ((t_sample)0.5));
 			if ((((int)0) != 0)) {
 				__m_phasor_3.phase = 0.5;
 				
 			};
-			t_sample phasor_1465 = __m_phasor_3(((int)2), samples_to_seconds);
-			t_sample sah_1474 = __m_sah_4(in1, phasor_1465, ((t_sample)0.5));
-			t_sample sub_1473 = (sah_1475 - sah_1474);
-			t_sample pow_1472 = safepow(sub_1473, ((int)2));
+			t_sample phasor_1536 = __m_phasor_3(((int)2), samples_to_seconds);
+			t_sample sah_1545 = __m_sah_4(in1, phasor_1536, ((t_sample)0.5));
+			t_sample sub_1544 = (sah_1546 - sah_1545);
+			t_sample pow_1543 = safepow(sub_1544, ((int)2));
 			if ((((int)0) != 0)) {
 				__m_phasor_5.phase = 0;
 				
 			};
-			t_sample phasor_1469 = __m_phasor_5(((int)2), samples_to_seconds);
-			t_sample sah_1479 = __m_sah_6(in2, phasor_1469, ((t_sample)0.5));
+			t_sample phasor_1540 = __m_phasor_5(((int)2), samples_to_seconds);
+			t_sample sah_1550 = __m_sah_6(in2, phasor_1540, ((t_sample)0.5));
 			if ((((int)0) != 0)) {
 				__m_phasor_7.phase = 0.5;
 				
 			};
-			t_sample phasor_1467 = __m_phasor_7(((int)2), samples_to_seconds);
-			t_sample sah_1478 = __m_sah_8(in2, phasor_1467, ((t_sample)0.5));
-			t_sample sub_1477 = (sah_1479 - sah_1478);
-			t_sample pow_1476 = safepow(sub_1477, ((int)2));
-			t_sample add_1471 = (pow_1472 + pow_1476);
-			t_sample sqrt_1470 = sqrt(add_1471);
-			t_sample out1 = sqrt_1470;
+			t_sample phasor_1538 = __m_phasor_7(((int)2), samples_to_seconds);
+			t_sample sah_1549 = __m_sah_8(in2, phasor_1538, ((t_sample)0.5));
+			t_sample sub_1548 = (sah_1550 - sah_1549);
+			t_sample pow_1547 = safepow(sub_1548, ((int)2));
+			t_sample add_1542 = (pow_1543 + pow_1547);
+			t_sample sqrt_1541 = sqrt(add_1542);
+			t_sample out1 = sqrt_1541;
 			if ((((int)0) != 0)) {
-				__m_phasor_9.phase = 0.1;
+				__m_phasor_9.phase = 0;
 				
 			};
-			t_sample phasor_1499 = __m_phasor_9(((int)1), samples_to_seconds);
-			t_sample sah_1497 = __m_sah_10(sqrt_1470, phasor_1499, ((t_sample)0.5));
+			t_sample phasor_1580 = __m_phasor_9(((int)1), samples_to_seconds);
+			t_sample sah_1577 = __m_sah_10(sqrt_1541, phasor_1580, ((t_sample)0.5));
 			if ((((int)0) != 0)) {
-				__m_phasor_11.phase = 0.6;
+				__m_phasor_11.phase = 0.5;
 				
 			};
-			t_sample phasor_1498 = __m_phasor_11(((int)1), samples_to_seconds);
-			t_sample sah_1496 = __m_sah_12(sqrt_1470, phasor_1498, ((t_sample)0.5));
-			t_sample sub_1494 = (sah_1497 - sah_1496);
-			t_sample abs_1502 = fabs(sub_1494);
-			t_sample out2 = abs_1502;
+			t_sample phasor_1579 = __m_phasor_11(((int)1), samples_to_seconds);
+			t_sample sah_1576 = __m_sah_12(sqrt_1541, phasor_1579, ((t_sample)0.5));
+			t_sample sub_1575 = (sah_1577 - sah_1576);
+			t_sample out2 = sub_1575;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
