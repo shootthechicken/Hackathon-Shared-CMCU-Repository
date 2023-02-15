@@ -33,22 +33,24 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 // The State struct contains all the state and procedures for the gendsp kernel
 typedef struct State {
 	CommonState __commonstate;
-	Phasor __m_phasor_1;
-	Phasor __m_phasor_3;
 	Phasor __m_phasor_5;
+	Phasor __m_phasor_1;
+	Phasor __m_phasor_7;
+	Phasor __m_phasor_3;
 	Phasor __m_phasor_9;
 	Phasor __m_phasor_11;
-	Phasor __m_phasor_7;
-	Sah __m_sah_12;
-	Sah __m_sah_10;
-	Sah __m_sah_8;
 	Sah __m_sah_6;
 	Sah __m_sah_4;
 	Sah __m_sah_2;
+	Sah __m_sah_12;
+	Sah __m_sah_10;
+	Sah __m_sah_8;
 	int __exception;
 	int vectorsize;
-	t_sample samplerate;
+	t_sample __m_count_13;
 	t_sample samples_to_seconds;
+	t_sample samplerate;
+	t_sample __m_carry_15;
 	// re-initialize all member variables;
 	inline void reset(t_param __sr, int __vs) {
 		__exception = 0;
@@ -67,6 +69,8 @@ typedef struct State {
 		__m_sah_10.reset(0);
 		__m_phasor_11.reset(0.5);
 		__m_sah_12.reset(0);
+		__m_count_13 = 0;
+		__m_carry_15 = 0;
 		genlib_reset_complete(this);
 		
 	};
@@ -77,10 +81,11 @@ typedef struct State {
 		const t_sample * __in2 = __ins[1];
 		t_sample * __out1 = __outs[0];
 		t_sample * __out2 = __outs[1];
+		t_sample * __out3 = __outs[2];
 		if (__exception) {
 			return __exception;
 			
-		} else if (( (__in1 == 0) || (__in2 == 0) || (__out1 == 0) || (__out2 == 0) )) {
+		} else if (( (__in1 == 0) || (__in2 == 0) || (__out1 == 0) || (__out2 == 0) || (__out3 == 0) )) {
 			__exception = GENLIB_ERR_NULL_BUFFER;
 			return __exception;
 			
@@ -136,9 +141,32 @@ typedef struct State {
 			t_sample sub_1575 = (sah_1577 - sah_1576);
 			t_sample abs_1583 = fabs(sub_1575);
 			t_sample out2 = abs_1583;
+			int eq_1670 = (abs_1583 == ((int)0));
+			int switch_1666 = (eq_1670 ? ((int)1) : ((int)0));
+			int gte_1602 = (abs_1583 >= ((int)50));
+			int switch_1596 = (gte_1602 ? ((int)1) : ((int)0));
+			__m_count_13 = ((switch_1596 + switch_1666) ? 0 : (fixdenorm(__m_count_13 + ((int)1))));
+			int carry_14 = 0;
+			int count_reset_16 = (switch_1596 + switch_1666);
+			if ((count_reset_16 != 0)) {
+				__m_count_13 = 0;
+				__m_carry_15 = 0;
+				
+			} else if (((((int)44000) > 0) && (__m_count_13 >= ((int)44000)))) {
+				int wraps_17 = (__m_count_13 / ((int)44000));
+				__m_carry_15 = (__m_carry_15 + wraps_17);
+				__m_count_13 = (__m_count_13 - (wraps_17 * ((int)44000)));
+				carry_14 = 1;
+				
+			};
+			int counter_1623 = __m_count_13;
+			int counter_1624 = carry_14;
+			int counter_1625 = __m_carry_15;
+			t_sample out3 = counter_1625;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
+			(*(__out3++)) = out3;
 			
 		};
 		return __exception;
@@ -155,7 +183,7 @@ typedef struct State {
 /// Number of signal inputs and outputs
 
 int gen_kernel_numins = 2;
-int gen_kernel_numouts = 2;
+int gen_kernel_numouts = 3;
 
 int num_inputs() { return gen_kernel_numins; }
 int num_outputs() { return gen_kernel_numouts; }
@@ -164,7 +192,7 @@ int num_params() { return 0; }
 /// Assistive lables for the signal inputs and outputs
 
 const char *gen_kernel_innames[] = { "in1", "in2" };
-const char *gen_kernel_outnames[] = { "out1", "out2" };
+const char *gen_kernel_outnames[] = { "out1", "out2", "out3" };
 
 /// Invoke the signal process of a State object
 
