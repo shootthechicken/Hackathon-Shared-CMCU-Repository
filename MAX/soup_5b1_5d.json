@@ -1,6 +1,6 @@
 {
 	"class": "Module",
-	"id": "node_74212",
+	"id": "node_123483",
 	"inlets": [
 		{
 			"assist": "in1",
@@ -20,27 +20,27 @@
 	},
 	"block": {
 		"class": "Block",
-		"id": "node_74237",
+		"id": "node_123508",
 		"children": [
 			{
 				"class": "Statement",
-				"id": "node_74222",
+				"id": "node_123493",
 				"inputs": [
 					{
 						"class": "Expression",
-						"id": "node_74223",
+						"id": "node_123494",
 						"operator": "gte",
 						"inputs": [
 							{
 								"class": "Variable",
-								"id": "node_74224",
+								"id": "node_123495",
 								"name": "in1",
 								"type": "signal t_sample",
 								"source": "box: [gte $in1 20] => gte_1592"
 							},
 							{
 								"class": "Constant",
-								"id": "node_74225",
+								"id": "node_123496",
 								"value": "20",
 								"eval": 20,
 								"type": "signal int",
@@ -57,7 +57,7 @@
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_74226",
+						"id": "node_123497",
 						"name": "gte_1592",
 						"type": "signal int",
 						"source": "box: [gte $in1 20] => gte_1592"
@@ -67,23 +67,23 @@
 			},
 			{
 				"class": "Statement",
-				"id": "node_74227",
+				"id": "node_123498",
 				"inputs": [
 					{
 						"class": "Expression",
-						"id": "node_74228",
+						"id": "node_123499",
 						"operator": "switch",
 						"inputs": [
 							{
 								"class": "Variable",
-								"id": "node_74229",
+								"id": "node_123500",
 								"name": "gte_1592",
 								"type": "signal int",
 								"source": "box: [switch $in1 $in2 $in3] => switch_1588"
 							},
 							{
 								"class": "Constant",
-								"id": "node_74240",
+								"id": "node_123511",
 								"value": 1,
 								"eval": 1,
 								"type": "signal int",
@@ -91,7 +91,7 @@
 							},
 							{
 								"class": "Constant",
-								"id": "node_74241",
+								"id": "node_123512",
 								"value": -20,
 								"eval": -20,
 								"type": "signal int",
@@ -108,7 +108,7 @@
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_74232",
+						"id": "node_123503",
 						"name": "switch_1588",
 						"type": "signal int",
 						"source": "box: [switch $in1 $in2 $in3] => switch_1588"
@@ -118,11 +118,11 @@
 			},
 			{
 				"class": "Statement",
-				"id": "node_74233",
+				"id": "node_123504",
 				"inputs": [
 					{
 						"class": "Variable",
-						"id": "node_74234",
+						"id": "node_123505",
 						"name": "switch_1588",
 						"type": "signal int",
 						"source": "box: [out 1 $in1] => "
@@ -131,7 +131,7 @@
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_74235",
+						"id": "node_123506",
 						"name": "out1",
 						"type": "signal t_sample",
 						"source": "box: [out 1 $in1] => "
