@@ -128,10 +128,10 @@ typedef struct State {
 			t_sample sub_90 = (sah_92 - sah_91);
 			t_sample abs_89 = fabs(sub_90);
 			t_sample out4 = abs_89;
-			int gte_86 = (abs_89 >= ((int)50));
-			int switch_87 = (gte_86 ? ((int)1) : ((int)0));
-			int eq_79 = (abs_89 == ((int)0));
-			int switch_80 = (eq_79 ? ((int)1) : ((int)0));
+			int gte_115 = (abs_89 >= ((t_sample)0.05));
+			int switch_87 = (gte_115 ? ((int)1) : ((int)0));
+			int eq_117 = (abs_89 == ((t_sample)0.001));
+			int switch_80 = (eq_117 ? ((int)1) : ((int)0));
 			__m_count_15 = ((switch_80 + switch_87) ? 0 : (fixdenorm(__m_count_15 + ((int)1))));
 			int carry_16 = 0;
 			int count_reset_18 = (switch_80 + switch_87);
