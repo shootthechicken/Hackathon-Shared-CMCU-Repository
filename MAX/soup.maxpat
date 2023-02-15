@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 5,
-			"revision" : 2,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 99.0, 79.0, 568.0, 770.0 ],
+		"rect" : [ 101.0, 87.0, 568.0, 770.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,32 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"format" : 6,
+					"id" : "obj-13",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 162.0, 153.0, 50.0, 22.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"format" : 6,
+					"id" : "obj-6",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 162.0, 129.0, 50.0, 22.0 ]
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-29",
 					"maxclass" : "ezdac~",
@@ -166,30 +192,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-13",
-					"maxclass" : "number",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 162.0, 129.0, 50.0, 22.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-12",
-					"maxclass" : "number",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 162.0, 153.0, 50.0, 22.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"fontface" : 0,
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
@@ -285,13 +287,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 5,
-							"revision" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 736.0, 79.0, 887.0, 559.0 ],
+						"rect" : [ 519.0, 87.0, 887.0, 559.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -321,12 +323,49 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
-									"id" : "obj-18",
+									"id" : "obj-28",
 									"maxclass" : "newobj",
-									"numinlets" : 1,
+									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 233.0, 457.0, 100.0, 22.0 ]
+									"patching_rect" : [ 262.0, 271.0, 45.0, 22.0 ],
+									"text" : "r score"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-25",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 134.0, 271.0, 110.0, 22.0 ],
+									"text" : "r accelerationValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-20",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 45.336665434837343, 271.0, 78.0, 22.0 ],
+									"text" : "r speedValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-17",
+									"maxclass" : "newobj",
+									"numinlets" : 3,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 45.336665434837343, 340.0, 69.0, 22.0 ],
+									"text" : "soundTests"
 								}
 
 							}
@@ -349,42 +388,6 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 45.336665434837343, 431.996666626930221, 35.0, 22.0 ],
 									"text" : "out 1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-30",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 45.336665434837343, 368.003332061767594, 36.0, 22.0 ],
-									"text" : "cycle"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-29",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 45.336665434837343, 322.663333253860458, 37.0, 22.0 ],
-									"text" : "* 200"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-28",
-									"maxclass" : "newobj",
-									"numinlets" : 0,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 45.333334684371948, 270.666674733161926, 45.0, 22.0 ],
-									"text" : "r score"
 								}
 
 							}
@@ -668,6 +671,22 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-31", 0 ],
+									"order" : 1,
+									"source" : [ "obj-17", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-32", 0 ],
+									"order" : 0,
+									"source" : [ "obj-17", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
 									"source" : [ "obj-19", 0 ]
 								}
@@ -677,6 +696,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
 									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-17", 0 ],
+									"source" : [ "obj-20", 0 ]
 								}
 
 							}
@@ -710,6 +736,13 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-17", 1 ],
+									"source" : [ "obj-25", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
 									"source" : [ "obj-26", 0 ]
 								}
@@ -724,15 +757,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-29", 0 ],
+									"destination" : [ "obj-17", 2 ],
 									"source" : [ "obj-28", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-30", 0 ],
-									"source" : [ "obj-29", 0 ]
 								}
 
 							}
@@ -740,22 +766,6 @@
 								"patchline" : 								{
 									"destination" : [ "obj-14", 0 ],
 									"source" : [ "obj-3", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-31", 0 ],
-									"order" : 1,
-									"source" : [ "obj-30", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-32", 0 ],
-									"order" : 0,
-									"source" : [ "obj-30", 0 ]
 								}
 
 							}
@@ -777,9 +787,8 @@
 					}
 ,
 					"patching_rect" : [ 89.0, 258.0, 254.0, 22.0 ],
-					"presentation_linecount" : 3,
 					"saved_object_attributes" : 					{
-						"exportfolder" : "LEGACY:/Users/tony/Documents/Hackathon-Shared-CMCU-Repository/MAX/",
+						"exportfolder" : "Macintosh HD:/Users/mckinley/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX/",
 						"exportname" : "soup"
 					}
 ,
@@ -804,14 +813,14 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-12", 0 ],
+					"destination" : [ "obj-13", 0 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-13", 0 ],
+					"destination" : [ "obj-6", 0 ],
 					"source" : [ "obj-1", 0 ]
 				}
 
@@ -819,13 +828,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-23", 0 ],
-					"source" : [ "obj-12", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-22", 0 ],
 					"source" : [ "obj-13", 0 ]
 				}
 
@@ -841,13 +843,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
 					"source" : [ "obj-21", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-5", 1 ],
-					"source" : [ "obj-24", 0 ]
 				}
 
 			}
@@ -900,6 +895,13 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-22", 0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
  ],
 		"parameters" : 		{
 			"obj-28" : [ "live.gain~", "live.gain~", 0 ],
@@ -915,14 +917,14 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "changeInDistance.gendsp",
-				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "consistencyScore.gendsp",
-				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
@@ -930,34 +932,41 @@
 , 			{
 				"name" : "oopsy.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/patchers",
-				"patcherrelativepath" : "../../Max 8/Packages/oopsy/patchers",
+				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "oopsy.node4max.js",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/javascript",
-				"patcherrelativepath" : "../../Max 8/Packages/oopsy/javascript",
+				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/javascript",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "oopsy.snoop.js",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/javascript",
-				"patcherrelativepath" : "../../Max 8/Packages/oopsy/javascript",
+				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/javascript",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
+				"name" : "soundTests.gendsp",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"patcherrelativepath" : ".",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "xyTest.maxpat",
-				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "xyToDistance.gendsp",
-				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
