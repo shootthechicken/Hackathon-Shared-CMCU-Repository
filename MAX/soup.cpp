@@ -33,44 +33,51 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 // The State struct contains all the state and procedures for the gendsp kernel
 typedef struct State {
 	CommonState __commonstate;
-	Phasor __m_phasor_5;
-	Phasor __m_phasor_1;
 	Phasor __m_phasor_7;
-	Phasor __m_phasor_3;
-	Phasor __m_phasor_9;
 	Phasor __m_phasor_11;
+	Phasor __m_phasor_9;
+	Phasor __m_phasor_3;
+	Phasor __m_phasor_5;
+	Phasor __m_phasor_13;
 	Sah __m_sah_6;
 	Sah __m_sah_4;
-	Sah __m_sah_2;
-	Sah __m_sah_12;
 	Sah __m_sah_10;
+	Sah __m_sah_14;
+	Sah __m_sah_12;
 	Sah __m_sah_8;
+	SineCycle __m_cycle_20;
+	SineData __sinedata;
 	int __exception;
 	int vectorsize;
-	t_sample __m_count_13;
-	t_sample samples_to_seconds;
 	t_sample samplerate;
-	t_sample __m_carry_15;
+	t_sample __m_carry_17;
+	t_sample m_JoyX_1;
+	t_sample __m_count_15;
+	t_sample m_JoyY_2;
+	t_sample samples_to_seconds;
 	// re-initialize all member variables;
 	inline void reset(t_param __sr, int __vs) {
 		__exception = 0;
 		vectorsize = __vs;
 		samplerate = __sr;
+		m_JoyX_1 = ((int)0);
+		m_JoyY_2 = ((int)0);
 		samples_to_seconds = (1 / samplerate);
-		__m_phasor_1.reset(0);
-		__m_sah_2.reset(0);
-		__m_phasor_3.reset(0.5);
+		__m_phasor_3.reset(0);
 		__m_sah_4.reset(0);
-		__m_phasor_5.reset(0);
+		__m_phasor_5.reset(0.5);
 		__m_sah_6.reset(0);
-		__m_phasor_7.reset(0.5);
+		__m_phasor_7.reset(0);
 		__m_sah_8.reset(0);
-		__m_phasor_9.reset(0);
+		__m_phasor_9.reset(0.5);
 		__m_sah_10.reset(0);
-		__m_phasor_11.reset(0.5);
+		__m_phasor_11.reset(0);
 		__m_sah_12.reset(0);
-		__m_count_13 = 0;
-		__m_carry_15 = 0;
+		__m_phasor_13.reset(0.5);
+		__m_sah_14.reset(0);
+		__m_count_15 = 0;
+		__m_carry_17 = 0;
+		__m_cycle_20.reset(samplerate, 0);
 		genlib_reset_complete(this);
 		
 	};
@@ -95,74 +102,56 @@ typedef struct State {
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
-			if ((((int)0) != 0)) {
-				__m_phasor_1.phase = 0;
+			t_sample xValue_44 = (m_JoyX_1 + in1);
+			t_sample yValue_45 = (m_JoyY_2 + in2);
+			t_sample phasor_29 = __m_phasor_3(((int)2), samples_to_seconds);
+			t_sample sah_38 = __m_sah_4(xValue_44, phasor_29, ((t_sample)0.5));
+			t_sample phasor_28 = __m_phasor_5(((int)2), samples_to_seconds);
+			t_sample sah_37 = __m_sah_6(xValue_44, phasor_28, ((t_sample)0.5));
+			t_sample sub_36 = (sah_38 - sah_37);
+			t_sample pow_35 = safepow(sub_36, ((int)2));
+			t_sample phasor_32 = __m_phasor_7(((int)2), samples_to_seconds);
+			t_sample sah_42 = __m_sah_8(yValue_45, phasor_32, ((t_sample)0.5));
+			t_sample phasor_30 = __m_phasor_9(((int)2), samples_to_seconds);
+			t_sample sah_41 = __m_sah_10(yValue_45, phasor_30, ((t_sample)0.5));
+			t_sample sub_40 = (sah_42 - sah_41);
+			t_sample pow_39 = safepow(sub_40, ((int)2));
+			t_sample add_34 = (pow_35 + pow_39);
+			t_sample sqrt_33 = sqrt(add_34);
+			t_sample phasor_24 = __m_phasor_11(((int)1), samples_to_seconds);
+			t_sample sah_21 = __m_sah_12(sqrt_33, phasor_24, ((t_sample)0.5));
+			t_sample phasor_23 = __m_phasor_13(((int)1), samples_to_seconds);
+			t_sample sah_20 = __m_sah_14(sqrt_33, phasor_23, ((t_sample)0.5));
+			t_sample sub_19 = (sah_21 - sah_20);
+			t_sample abs_18 = fabs(sub_19);
+			int gte_53 = (abs_18 >= ((int)10));
+			int switch_16 = (gte_53 ? ((int)1) : ((int)0));
+			int eq_8 = (abs_18 == ((int)0));
+			int switch_9 = (eq_8 ? ((int)1) : ((int)0));
+			__m_count_15 = ((switch_9 + switch_16) ? 0 : (fixdenorm(__m_count_15 + ((int)1))));
+			int carry_16 = 0;
+			int count_reset_18 = (switch_9 + switch_16);
+			if ((count_reset_18 != 0)) {
+				__m_count_15 = 0;
+				__m_carry_17 = 0;
+				
+			} else if (((((int)44000) > 0) && (__m_count_15 >= ((int)44000)))) {
+				int wraps_19 = (__m_count_15 / ((int)44000));
+				__m_carry_17 = (__m_carry_17 + wraps_19);
+				__m_count_15 = (__m_count_15 - (wraps_19 * ((int)44000)));
+				carry_16 = 1;
 				
 			};
-			t_sample phasor_1537 = __m_phasor_1(((int)2), samples_to_seconds);
-			t_sample sah_1546 = __m_sah_2(in1, phasor_1537, ((t_sample)0.5));
-			if ((((int)0) != 0)) {
-				__m_phasor_3.phase = 0.5;
-				
-			};
-			t_sample phasor_1536 = __m_phasor_3(((int)2), samples_to_seconds);
-			t_sample sah_1545 = __m_sah_4(in1, phasor_1536, ((t_sample)0.5));
-			t_sample sub_1544 = (sah_1546 - sah_1545);
-			t_sample pow_1543 = safepow(sub_1544, ((int)2));
-			if ((((int)0) != 0)) {
-				__m_phasor_5.phase = 0;
-				
-			};
-			t_sample phasor_1540 = __m_phasor_5(((int)2), samples_to_seconds);
-			t_sample sah_1550 = __m_sah_6(in2, phasor_1540, ((t_sample)0.5));
-			if ((((int)0) != 0)) {
-				__m_phasor_7.phase = 0.5;
-				
-			};
-			t_sample phasor_1538 = __m_phasor_7(((int)2), samples_to_seconds);
-			t_sample sah_1549 = __m_sah_8(in2, phasor_1538, ((t_sample)0.5));
-			t_sample sub_1548 = (sah_1550 - sah_1549);
-			t_sample pow_1547 = safepow(sub_1548, ((int)2));
-			t_sample add_1542 = (pow_1543 + pow_1547);
-			t_sample sqrt_1541 = sqrt(add_1542);
-			t_sample out1 = sqrt_1541;
-			if ((((int)0) != 0)) {
-				__m_phasor_9.phase = 0;
-				
-			};
-			t_sample phasor_1580 = __m_phasor_9(((int)1), samples_to_seconds);
-			t_sample sah_1577 = __m_sah_10(sqrt_1541, phasor_1580, ((t_sample)0.5));
-			if ((((int)0) != 0)) {
-				__m_phasor_11.phase = 0.5;
-				
-			};
-			t_sample phasor_1579 = __m_phasor_11(((int)1), samples_to_seconds);
-			t_sample sah_1576 = __m_sah_12(sqrt_1541, phasor_1579, ((t_sample)0.5));
-			t_sample sub_1575 = (sah_1577 - sah_1576);
-			t_sample abs_1583 = fabs(sub_1575);
-			t_sample out2 = abs_1583;
-			int eq_1670 = (abs_1583 == ((int)0));
-			int switch_1666 = (eq_1670 ? ((int)1) : ((int)0));
-			int gte_1602 = (abs_1583 >= ((int)50));
-			int switch_1596 = (gte_1602 ? ((int)1) : ((int)0));
-			__m_count_13 = ((switch_1596 + switch_1666) ? 0 : (fixdenorm(__m_count_13 + ((int)1))));
-			int carry_14 = 0;
-			int count_reset_16 = (switch_1596 + switch_1666);
-			if ((count_reset_16 != 0)) {
-				__m_count_13 = 0;
-				__m_carry_15 = 0;
-				
-			} else if (((((int)44000) > 0) && (__m_count_13 >= ((int)44000)))) {
-				int wraps_17 = (__m_count_13 / ((int)44000));
-				__m_carry_15 = (__m_carry_15 + wraps_17);
-				__m_count_13 = (__m_count_13 - (wraps_17 * ((int)44000)));
-				carry_14 = 1;
-				
-			};
-			int counter_1623 = __m_count_13;
-			int counter_1624 = carry_14;
-			int counter_1625 = __m_carry_15;
-			t_sample out3 = counter_1625;
+			int counter_10 = __m_count_15;
+			int counter_11 = carry_16;
+			int counter_12 = __m_carry_17;
+			t_sample out3 = counter_12;
+			int mul_56 = (counter_12 * ((int)200));
+			__m_cycle_20.freq(mul_56);
+			t_sample cycle_57 = __m_cycle_20(__sinedata);
+			t_sample cycleindex_58 = __m_cycle_20.phase();
+			t_sample out1 = (cycle_57 + sqrt_33);
+			t_sample out2 = (cycle_57 + abs_18);
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
@@ -171,6 +160,12 @@ typedef struct State {
 		};
 		return __exception;
 		
+	};
+	inline void set_JoyX(t_param _value) {
+		m_JoyX_1 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	};
+	inline void set_JoyY(t_param _value) {
+		m_JoyY_2 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	
 } State;
@@ -187,7 +182,7 @@ int gen_kernel_numouts = 3;
 
 int num_inputs() { return gen_kernel_numins; }
 int num_outputs() { return gen_kernel_numouts; }
-int num_params() { return 0; }
+int num_params() { return 2; }
 
 /// Assistive lables for the signal inputs and outputs
 
@@ -213,6 +208,8 @@ void reset(CommonState *cself) {
 void setparameter(CommonState *cself, long index, t_param value, void *ref) {
 	State *self = (State *)cself;
 	switch (index) {
+		case 0: self->set_JoyX(value); break;
+		case 1: self->set_JoyY(value); break;
 		
 		default: break;
 	}
@@ -223,6 +220,8 @@ void setparameter(CommonState *cself, long index, t_param value, void *ref) {
 void getparameter(CommonState *cself, long index, t_param *value) {
 	State *self = (State *)cself;
 	switch (index) {
+		case 0: *value = self->m_JoyX_1; break;
+		case 1: *value = self->m_JoyY_2; break;
 		
 		default: break;
 	}
@@ -303,8 +302,36 @@ void *create(t_param sr, long vs) {
 	self->__commonstate.numouts = gen_kernel_numouts;
 	self->__commonstate.sr = sr;
 	self->__commonstate.vs = vs;
-	self->__commonstate.params = 0;
-	self->__commonstate.numparams = 0;
+	self->__commonstate.params = (ParamInfo *)genlib_sysmem_newptr(2 * sizeof(ParamInfo));
+	self->__commonstate.numparams = 2;
+	// initialize parameter 0 ("m_JoyX_1")
+	pi = self->__commonstate.params + 0;
+	pi->name = "JoyX";
+	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
+	pi->defaultvalue = self->m_JoyX_1;
+	pi->defaultref = 0;
+	pi->hasinputminmax = false;
+	pi->inputmin = 0;
+	pi->inputmax = 1;
+	pi->hasminmax = true;
+	pi->outputmin = 0;
+	pi->outputmax = 1;
+	pi->exp = 0;
+	pi->units = "";		// no units defined
+	// initialize parameter 1 ("m_JoyY_2")
+	pi = self->__commonstate.params + 1;
+	pi->name = "JoyY";
+	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
+	pi->defaultvalue = self->m_JoyY_2;
+	pi->defaultref = 0;
+	pi->hasinputminmax = false;
+	pi->inputmin = 0;
+	pi->inputmax = 1;
+	pi->hasminmax = true;
+	pi->outputmin = 0;
+	pi->outputmax = 1;
+	pi->exp = 0;
+	pi->units = "";		// no units defined
 	
 	return self;
 }
@@ -313,7 +340,8 @@ void *create(t_param sr, long vs) {
 
 void destroy(CommonState *cself) {
 	State *self = (State *)cself;
-	
+	genlib_sysmem_freeptr(cself->params);
+		
 	delete self;
 }
 

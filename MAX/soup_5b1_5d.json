@@ -1,6 +1,6 @@
 {
 	"class": "Module",
-	"id": "node_123483",
+	"id": "node_29893",
 	"inlets": [
 		{
 			"assist": "in1",
@@ -20,110 +20,110 @@
 	},
 	"block": {
 		"class": "Block",
-		"id": "node_123508",
+		"id": "node_29918",
 		"children": [
 			{
 				"class": "Statement",
-				"id": "node_123493",
+				"id": "node_29903",
 				"inputs": [
 					{
 						"class": "Expression",
-						"id": "node_123494",
+						"id": "node_29904",
 						"operator": "gte",
 						"inputs": [
 							{
 								"class": "Variable",
-								"id": "node_123495",
+								"id": "node_29905",
 								"name": "in1",
 								"type": "signal t_sample",
-								"source": "box: [gte $in1 20] => gte_1592"
+								"source": "box: [gte $in1 20] => gte_3"
 							},
 							{
 								"class": "Constant",
-								"id": "node_123496",
+								"id": "node_29906",
 								"value": "20",
 								"eval": 20,
-								"type": "signal int",
-								"source": "box: [gte $in1 20] => gte_1592"
+								"type": "constant int",
+								"source": "box: [gte $in1 20] => gte_3"
 							}
 						],
 						"attributes": {
 							
 						},
 						"type": "signal int",
-						"source": "box: [gte $in1 20] => gte_1592"
+						"source": "box: [gte $in1 20] => gte_3"
 					}
 				],
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_123497",
-						"name": "gte_1592",
+						"id": "node_29907",
+						"name": "gte_3",
 						"type": "signal int",
-						"source": "box: [gte $in1 20] => gte_1592"
+						"source": "box: [gte $in1 20] => gte_3"
 					}
 				],
-				"source": "box: [gte $in1 20] => gte_1592"
+				"source": "box: [gte $in1 20] => gte_3"
 			},
 			{
 				"class": "Statement",
-				"id": "node_123498",
+				"id": "node_29908",
 				"inputs": [
 					{
 						"class": "Expression",
-						"id": "node_123499",
+						"id": "node_29909",
 						"operator": "switch",
 						"inputs": [
 							{
 								"class": "Variable",
-								"id": "node_123500",
-								"name": "gte_1592",
+								"id": "node_29910",
+								"name": "gte_3",
 								"type": "signal int",
-								"source": "box: [switch $in1 $in2 $in3] => switch_1588"
+								"source": "box: [switch $in1 $in2 $in3] => switch_4"
 							},
 							{
 								"class": "Constant",
-								"id": "node_123511",
+								"id": "node_29921",
 								"value": 1,
 								"eval": 1,
-								"type": "signal int",
-								"source": "box: [switch $in1 $in2 $in3] => switch_1588"
+								"type": "constant int",
+								"source": "box: [switch $in1 $in2 $in3] => switch_4"
 							},
 							{
 								"class": "Constant",
-								"id": "node_123512",
+								"id": "node_29922",
 								"value": -20,
 								"eval": -20,
-								"type": "signal int",
-								"source": "box: [switch $in1 $in2 $in3] => switch_1588"
+								"type": "constant int",
+								"source": "box: [switch $in1 $in2 $in3] => switch_4"
 							}
 						],
 						"attributes": {
 							
 						},
 						"type": "signal int",
-						"source": "box: [switch $in1 $in2 $in3] => switch_1588"
+						"source": "box: [switch $in1 $in2 $in3] => switch_4"
 					}
 				],
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_123503",
-						"name": "switch_1588",
+						"id": "node_29913",
+						"name": "switch_4",
 						"type": "signal int",
-						"source": "box: [switch $in1 $in2 $in3] => switch_1588"
+						"source": "box: [switch $in1 $in2 $in3] => switch_4"
 					}
 				],
-				"source": "box: [switch $in1 $in2 $in3] => switch_1588"
+				"source": "box: [switch $in1 $in2 $in3] => switch_4"
 			},
 			{
 				"class": "Statement",
-				"id": "node_123504",
+				"id": "node_29914",
 				"inputs": [
 					{
 						"class": "Variable",
-						"id": "node_123505",
-						"name": "switch_1588",
+						"id": "node_29915",
+						"name": "switch_4",
 						"type": "signal int",
 						"source": "box: [out 1 $in1] => "
 					}
@@ -131,7 +131,7 @@
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_123506",
+						"id": "node_29916",
 						"name": "out1",
 						"type": "signal t_sample",
 						"source": "box: [out 1 $in1] => "
@@ -141,5 +141,5 @@
 			}
 		]
 	},
-	"source": "patcher: gen.patcher 0x10adfdb80 graph 0x600008733180"
+	"source": "patcher: gen.patcher 0x10b18ee70 graph 0x600001367490"
 }

@@ -212,7 +212,7 @@
 ,
 					"patching_rect" : [ 196.0, 397.0, 36.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"exportfolder" : "Macintosh HD:/Users/mckinley/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX/",
+						"exportfolder" : "Macintosh HD:/Users/mckinley/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max/",
 						"exportname" : "soup_5b1_5d"
 					}
 ,
@@ -394,11 +394,232 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-32",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 102.5, 431.996666626930221, 35.0, 22.0 ],
+									"text" : "out 2"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-31",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 45.336665434837343, 431.996666626930221, 35.0, 22.0 ],
+									"text" : "out 1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-30",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 45.336665434837343, 368.003332061767594, 36.0, 22.0 ],
+									"text" : "cycle"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-29",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 45.336665434837343, 322.663333253860458, 37.0, 22.0 ],
+									"text" : "* 200"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-28",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 45.333334684371948, 270.666674733161926, 45.0, 22.0 ],
+									"text" : "r score"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-27",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 68.99999988079071, 19.0, 73.0, 22.0 ],
+									"text" : "param JoyX"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-26",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 186.666664958000183, 19.0, 73.0, 22.0 ],
+									"text" : "param JoyY"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-24",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 702.000006079673767, 19.0, 45.0, 22.0 ],
+									"text" : "r score"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-23",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 563.666670560836792, 19.0, 110.0, 22.0 ],
+									"text" : "r accelerationValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-22",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 452.66667103767395, 19.0, 78.0, 22.0 ],
+									"text" : "r speedValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-21",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 306.0, 92.0, 110.0, 22.0 ],
+									"text" : "r accelerationValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-19",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 164.0, 92.0, 78.0, 22.0 ],
+									"text" : "r speedValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-16",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 94.0, 92.0, 52.0, 22.0 ],
+									"text" : "r yValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-15",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 33.0, 92.0, 52.0, 22.0 ],
+									"text" : "r xValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-14",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 33.0, 184.0, 80.0, 22.0 ],
+									"text" : "s speedValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-13",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 164.0, 185.0, 112.0, 22.0 ],
+									"text" : "s accelerationValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-12",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 306.0, 185.0, 47.0, 22.0 ],
+									"text" : "s score"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-10",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 149.0, 55.0, 54.0, 22.0 ],
+									"text" : "s yValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-9",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 33.0, 55.0, 54.0, 22.0 ],
+									"text" : "s xValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-8",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 169.0, 337.0, 35.0, 22.0 ],
+									"patching_rect" : [ 702.000006079673767, 56.0, 35.0, 22.0 ],
 									"text" : "out 3"
 								}
 
@@ -410,7 +631,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 169.0, 188.0, 103.0, 22.0 ],
+									"patching_rect" : [ 306.0, 138.0, 103.0, 22.0 ],
 									"text" : "consistencyScore"
 								}
 
@@ -422,7 +643,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 99.0, 147.0, 105.0, 22.0 ],
+									"patching_rect" : [ 164.0, 138.0, 105.0, 22.0 ],
 									"text" : "changeInDistance"
 								}
 
@@ -434,7 +655,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 33.0, 109.0, 80.0, 22.0 ],
+									"patching_rect" : [ 33.0, 138.0, 80.0, 22.0 ],
 									"text" : "xyToDistance"
 								}
 
@@ -445,7 +666,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 99.0, 337.0, 35.0, 22.0 ],
+									"patching_rect" : [ 563.666670560836792, 55.0, 35.0, 22.0 ],
 									"text" : "out 2"
 								}
 
@@ -457,7 +678,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 33.0, 73.0, 28.0, 22.0 ],
+									"patching_rect" : [ 33.0, 19.0, 28.0, 22.0 ],
 									"text" : "in 1"
 								}
 
@@ -469,7 +690,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 94.0, 73.0, 28.0, 22.0 ],
+									"patching_rect" : [ 149.0, 19.0, 28.0, 22.0 ],
 									"text" : "in 2"
 								}
 
@@ -480,7 +701,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 33.0, 337.0, 35.0, 22.0 ],
+									"patching_rect" : [ 452.66667103767395, 55.0, 35.0, 22.0 ],
 									"text" : "out 1"
 								}
 
@@ -488,53 +709,128 @@
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
-									"destination" : [ "obj-3", 0 ],
+									"destination" : [ "obj-9", 0 ],
 									"source" : [ "obj-1", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-3", 1 ],
-									"source" : [ "obj-2", 0 ]
+									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-15", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-4", 0 ],
-									"order" : 1,
-									"source" : [ "obj-3", 0 ]
+									"destination" : [ "obj-3", 1 ],
+									"source" : [ "obj-16", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
-									"order" : 0,
-									"source" : [ "obj-3", 0 ]
+									"source" : [ "obj-19", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-5", 0 ],
-									"order" : 1,
-									"source" : [ "obj-6", 0 ]
+									"destination" : [ "obj-10", 0 ],
+									"source" : [ "obj-2", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-7", 0 ],
-									"order" : 0,
-									"source" : [ "obj-6", 0 ]
+									"source" : [ "obj-21", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"source" : [ "obj-22", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-5", 0 ],
+									"source" : [ "obj-23", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-8", 0 ],
+									"source" : [ "obj-24", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-10", 0 ],
+									"source" : [ "obj-26", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-9", 0 ],
+									"source" : [ "obj-27", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-29", 0 ],
+									"source" : [ "obj-28", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-30", 0 ],
+									"source" : [ "obj-29", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-14", 0 ],
+									"source" : [ "obj-3", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-31", 0 ],
+									"order" : 1,
+									"source" : [ "obj-30", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-32", 0 ],
+									"order" : 0,
+									"source" : [ "obj-30", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-13", 0 ],
+									"source" : [ "obj-6", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-12", 0 ],
 									"source" : [ "obj-7", 0 ]
 								}
 
@@ -544,7 +840,7 @@
 ,
 					"patching_rect" : [ 13.0, 261.0, 88.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"exportfolder" : "Macintosh HD:/Users/mckinley/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX/",
+						"exportfolder" : "Macintosh HD:/Users/mckinley/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max/",
 						"exportname" : "soup"
 					}
 ,
@@ -634,14 +930,14 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "changeInDistance.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "consistencyScore.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
@@ -669,14 +965,14 @@
 			}
 , 			{
 				"name" : "xyTest.maxpat",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "xyToDistance.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
