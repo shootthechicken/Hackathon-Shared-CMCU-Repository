@@ -34,25 +34,27 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 typedef struct State {
 	CommonState __commonstate;
 	Phasor __m_phasor_9;
-	Phasor __m_phasor_13;
 	Phasor __m_phasor_11;
-	Phasor __m_phasor_5;
 	Phasor __m_phasor_7;
-	Phasor __m_phasor_15;
-	Sah __m_sah_8;
+	Phasor __m_phasor_3;
+	Phasor __m_phasor_5;
+	Phasor __m_phasor_13;
 	Sah __m_sah_6;
-	Sah __m_sah_12;
-	Sah __m_sah_16;
-	Sah __m_sah_14;
+	Sah __m_sah_4;
 	Sah __m_sah_10;
-	SineCycle __m_cycle_22;
+	Sah __m_sah_14;
+	Sah __m_sah_12;
+	Sah __m_sah_8;
+	SineCycle __m_cycle_23;
 	SineData __sinedata;
-	int __exception;
 	int vectorsize;
-	t_sample samplerate;
-	t_sample __m_carry_19;
+	int __exception;
+	t_sample __m_carry_17;
+	t_sample __m_carry_21;
+	t_sample __m_count_19;
+	t_sample __m_count_15;
 	t_sample m_JoyY_1;
-	t_sample __m_count_17;
+	t_sample samplerate;
 	t_sample m_JoyX_2;
 	t_sample samples_to_seconds;
 	// re-initialize all member variables;
@@ -63,21 +65,23 @@ typedef struct State {
 		m_JoyY_1 = ((int)0);
 		m_JoyX_2 = ((int)0);
 		samples_to_seconds = (1 / samplerate);
-		__m_phasor_5.reset(0);
+		__m_phasor_3.reset(0);
+		__m_sah_4.reset(0);
+		__m_phasor_5.reset(0.5);
 		__m_sah_6.reset(0);
-		__m_phasor_7.reset(0.5);
+		__m_phasor_7.reset(0);
 		__m_sah_8.reset(0);
-		__m_phasor_9.reset(0);
+		__m_phasor_9.reset(0.5);
 		__m_sah_10.reset(0);
-		__m_phasor_11.reset(0.5);
+		__m_phasor_11.reset(0);
 		__m_sah_12.reset(0);
-		__m_phasor_13.reset(0);
+		__m_phasor_13.reset(0.5);
 		__m_sah_14.reset(0);
-		__m_phasor_15.reset(0.5);
-		__m_sah_16.reset(0);
-		__m_count_17 = 0;
-		__m_carry_19 = 0;
-		__m_cycle_22.reset(samplerate, 0);
+		__m_count_15 = 0;
+		__m_carry_17 = 0;
+		__m_count_19 = 0;
+		__m_carry_21 = 0;
+		__m_cycle_23.reset(samplerate, 0);
 		genlib_reset_complete(this);
 		
 	};
@@ -86,7 +90,6 @@ typedef struct State {
 		vectorsize = __n;
 		const t_sample * __in1 = __ins[0];
 		const t_sample * __in2 = __ins[1];
-		const t_sample * __in3 = __ins[2];
 		t_sample * __out1 = __outs[0];
 		t_sample * __out2 = __outs[1];
 		t_sample * __out3 = __outs[2];
@@ -95,7 +98,7 @@ typedef struct State {
 		if (__exception) {
 			return __exception;
 			
-		} else if (( (__in1 == 0) || (__in2 == 0) || (__in3 == 0) || (__out1 == 0) || (__out2 == 0) || (__out3 == 0) || (__out4 == 0) || (__out5 == 0) )) {
+		} else if (( (__in1 == 0) || (__in2 == 0) || (__out1 == 0) || (__out2 == 0) || (__out3 == 0) || (__out4 == 0) || (__out5 == 0) )) {
 			__exception = GENLIB_ERR_NULL_BUFFER;
 			return __exception;
 			
@@ -105,62 +108,75 @@ typedef struct State {
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
-			const t_sample in3 = (*(__in3++));
-			t_sample choice_3 = int(in3);
-			t_sample selector_64 = ((choice_3 >= 2) ? m_JoyX_2 : ((choice_3 >= 1) ? in1 : 0));
-			t_sample choice_4 = int(in3);
-			t_sample selector_65 = ((choice_4 >= 2) ? m_JoyY_1 : ((choice_4 >= 1) ? in2 : 0));
-			t_sample phasor_41 = __m_phasor_5(((int)2), samples_to_seconds);
-			t_sample sah_50 = __m_sah_6(selector_64, phasor_41, ((t_sample)0.5));
-			t_sample phasor_40 = __m_phasor_7(((int)2), samples_to_seconds);
-			t_sample sah_49 = __m_sah_8(selector_64, phasor_40, ((t_sample)0.5));
-			t_sample sub_48 = (sah_50 - sah_49);
-			t_sample pow_47 = safepow(sub_48, ((int)2));
-			t_sample phasor_44 = __m_phasor_9(((int)2), samples_to_seconds);
-			t_sample sah_54 = __m_sah_10(selector_65, phasor_44, ((t_sample)0.5));
-			t_sample phasor_42 = __m_phasor_11(((int)2), samples_to_seconds);
-			t_sample sah_53 = __m_sah_12(selector_65, phasor_42, ((t_sample)0.5));
-			t_sample sub_52 = (sah_54 - sah_53);
-			t_sample pow_51 = safepow(sub_52, ((int)2));
-			t_sample add_46 = (pow_47 + pow_51);
-			t_sample sqrt_45 = sqrt(add_46);
-			t_sample out3 = sqrt_45;
-			t_sample phasor_35 = __m_phasor_13(((int)1), samples_to_seconds);
-			t_sample sah_32 = __m_sah_14(sqrt_45, phasor_35, ((t_sample)0.5));
-			t_sample phasor_34 = __m_phasor_15(((int)1), samples_to_seconds);
-			t_sample sah_31 = __m_sah_16(sqrt_45, phasor_34, ((t_sample)0.5));
-			t_sample sub_30 = (sah_32 - sah_31);
-			t_sample abs_29 = fabs(sub_30);
-			t_sample out4 = abs_29;
-			int gte_25 = (abs_29 >= ((t_sample)0.05));
-			int switch_26 = (gte_25 ? ((int)1) : ((int)0));
-			int lte_18 = (abs_29 <= ((t_sample)0.0001));
-			int switch_19 = (lte_18 ? ((int)1) : ((int)0));
-			__m_count_17 = ((switch_19 + switch_26) ? 0 : (fixdenorm(__m_count_17 + ((int)1))));
-			int carry_18 = 0;
-			int count_reset_20 = (switch_19 + switch_26);
-			if ((count_reset_20 != 0)) {
-				__m_count_17 = 0;
-				__m_carry_19 = 0;
+			t_sample xValue_135 = (in1 + m_JoyX_2);
+			t_sample yValue_134 = (in2 + m_JoyY_1);
+			t_sample phasor_160 = __m_phasor_3(((int)2), samples_to_seconds);
+			t_sample sah_169 = __m_sah_4(xValue_135, phasor_160, ((t_sample)0.5));
+			t_sample phasor_159 = __m_phasor_5(((int)2), samples_to_seconds);
+			t_sample sah_168 = __m_sah_6(xValue_135, phasor_159, ((t_sample)0.5));
+			t_sample sub_167 = (sah_169 - sah_168);
+			t_sample pow_166 = safepow(sub_167, ((int)2));
+			t_sample phasor_163 = __m_phasor_7(((int)2), samples_to_seconds);
+			t_sample sah_173 = __m_sah_8(yValue_134, phasor_163, ((t_sample)0.5));
+			t_sample phasor_161 = __m_phasor_9(((int)2), samples_to_seconds);
+			t_sample sah_172 = __m_sah_10(yValue_134, phasor_161, ((t_sample)0.5));
+			t_sample sub_171 = (sah_173 - sah_172);
+			t_sample pow_170 = safepow(sub_171, ((int)2));
+			t_sample add_165 = (pow_166 + pow_170);
+			t_sample sqrt_164 = sqrt(add_165);
+			t_sample out3 = sqrt_164;
+			t_sample phasor_155 = __m_phasor_11(((int)1), samples_to_seconds);
+			t_sample sah_152 = __m_sah_12(sqrt_164, phasor_155, ((t_sample)0.5));
+			t_sample phasor_154 = __m_phasor_13(((int)1), samples_to_seconds);
+			t_sample sah_151 = __m_sah_14(sqrt_164, phasor_154, ((t_sample)0.5));
+			t_sample sub_150 = (sah_152 - sah_151);
+			t_sample abs_149 = fabs(sub_150);
+			t_sample out4 = abs_149;
+			int expr_381 = (abs_149 <= ((t_sample)0.0001));
+			int expr_380 = (((t_sample)0.05) >= abs_149);
+			int switch_239 = (expr_380 ? ((int)1) : ((int)0));
+			__m_count_15 = (expr_381 ? 0 : (fixdenorm(__m_count_15 + switch_239)));
+			int carry_16 = 0;
+			if ((expr_381 != 0)) {
+				__m_count_15 = 0;
+				__m_carry_17 = 0;
 				
-			} else if (((((int)44000) > 0) && (__m_count_17 >= ((int)44000)))) {
-				int wraps_21 = (__m_count_17 / ((int)44000));
-				__m_carry_19 = (__m_carry_19 + wraps_21);
-				__m_count_17 = (__m_count_17 - (wraps_21 * ((int)44000)));
-				carry_18 = 1;
+			} else if (((((int)44000) > 0) && (__m_count_15 >= ((int)44000)))) {
+				int wraps_18 = (__m_count_15 / ((int)44000));
+				__m_carry_17 = (__m_carry_17 + wraps_18);
+				__m_count_15 = (__m_count_15 - (wraps_18 * ((int)44000)));
+				carry_16 = 1;
 				
 			};
-			int counter_20 = __m_count_17;
-			int counter_21 = carry_18;
-			int counter_22 = __m_carry_19;
-			t_sample mul_6 = (sqrt_45 * ((int)2000));
-			__m_cycle_22.freq(mul_6);
-			t_sample cycle_4 = __m_cycle_22(__sinedata);
-			t_sample cycleindex_5 = __m_cycle_22.phase();
-			t_sample out5 = counter_22;
-			t_sample add_68 = (sqrt_45 + abs_29);
-			t_sample out1 = (add_68 + cycle_4);
-			t_sample out2 = (((int)0) + cycle_4);
+			int counter_141 = __m_count_15;
+			int counter_142 = carry_16;
+			int counter_143 = __m_carry_17;
+			int switch_277 = (expr_380 ? ((int)0) : ((int)5));
+			__m_count_19 = (expr_381 ? 0 : (fixdenorm(__m_count_19 + switch_277)));
+			int carry_20 = 0;
+			if ((expr_381 != 0)) {
+				__m_count_19 = 0;
+				__m_carry_21 = 0;
+				
+			} else if (((((int)44000) > 0) && (__m_count_19 >= ((int)44000)))) {
+				int wraps_22 = (__m_count_19 / ((int)44000));
+				__m_carry_21 = (__m_carry_21 + wraps_22);
+				__m_count_19 = (__m_count_19 - (wraps_22 * ((int)44000)));
+				carry_20 = 1;
+				
+			};
+			int counter_265 = __m_count_19;
+			int counter_266 = carry_20;
+			int counter_267 = __m_carry_21;
+			int sub_272 = (counter_143 - counter_267);
+			int expr_379 = ((sub_272 > ((int)0)) * sub_272);
+			int mul_215 = (expr_379 * ((int)200));
+			__m_cycle_23.freq(mul_215);
+			t_sample cycle_183 = __m_cycle_23(__sinedata);
+			t_sample cycleindex_184 = __m_cycle_23.phase();
+			t_sample out2 = cycle_183;
+			t_sample out1 = cycle_183;
+			t_sample out5 = expr_379;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
@@ -188,7 +204,7 @@ typedef struct State {
 
 /// Number of signal inputs and outputs
 
-int gen_kernel_numins = 3;
+int gen_kernel_numins = 2;
 int gen_kernel_numouts = 5;
 
 int num_inputs() { return gen_kernel_numins; }
@@ -197,7 +213,7 @@ int num_params() { return 2; }
 
 /// Assistive lables for the signal inputs and outputs
 
-const char *gen_kernel_innames[] = { "in1", "in2", "in3" };
+const char *gen_kernel_innames[] = { "in1", "in2" };
 const char *gen_kernel_outnames[] = { "out1", "out2", "out3", "out4", "out5" };
 
 /// Invoke the signal process of a State object
