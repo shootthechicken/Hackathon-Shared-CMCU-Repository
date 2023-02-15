@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 5,
-			"revision" : 1,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 273.0, 173.0, 640.0, 480.0 ],
+		"rect" : [ 273.0, 173.0, 1162.0, 770.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-18",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 51.0, 135.0, 70.0, 70.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontface" : 0,
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
@@ -49,7 +61,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 155.0, 309.0, 56.0, 22.0 ],
+					"patching_rect" : [ 278.0, 195.0, 56.0, 22.0 ],
 					"sig" : 0.0
 				}
 
@@ -66,7 +78,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 5,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -212,7 +224,7 @@
 ,
 					"patching_rect" : [ 196.0, 397.0, 36.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"exportfolder" : "Macintosh HD:/Users/mckinley/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max/",
+						"exportfolder" : "LEGACY:/Users/tony/Documents/Hackathon-Shared-CMCU-Repository/MAX/",
 						"exportname" : "soup_5b1_5d"
 					}
 ,
@@ -232,7 +244,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 82.0, 309.0, 56.0, 22.0 ],
+					"patching_rect" : [ 209.0, 195.0, 56.0, 22.0 ],
 					"sig" : 0.0
 				}
 
@@ -245,7 +257,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 74.0, 224.0, 50.0, 22.0 ]
+					"patching_rect" : [ 123.0, 183.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -257,7 +269,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 74.0, 197.0, 50.0, 22.0 ]
+					"patching_rect" : [ 123.0, 159.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -272,7 +284,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 11.5, 309.0, 56.0, 22.0 ],
+					"patching_rect" : [ 209.0, 222.0, 56.0, 22.0 ],
 					"sig" : 0.0
 				}
 
@@ -281,10 +293,10 @@
 				"box" : 				{
 					"id" : "obj-1",
 					"maxclass" : "newobj",
-					"numinlets" : 0,
+					"numinlets" : 1,
 					"numoutlets" : 4,
 					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 17.0, 171.0, 50.5, 22.0 ],
+					"patching_rect" : [ 123.0, 135.0, 50.5, 22.0 ],
 					"text" : "xyTest"
 				}
 
@@ -296,7 +308,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 315.0, 271.0, 261.0, 60.0 ],
+					"patching_rect" : [ 570.0, 479.0, 261.0, 60.0 ],
 					"text" : "If the max patch has more than one gen~ object, all will be combined into a \"multi-app\" binary for the Daisy. Use the device encoder or switches to select the apps. "
 				}
 
@@ -308,7 +320,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 315.0, 229.0, 259.0, 33.0 ],
+					"patching_rect" : [ 570.0, 437.0, 259.0, 33.0 ],
 					"text" : "If the device is plugged in via USB and ready to flash, oopsy will also try to flash it."
 				}
 
@@ -321,7 +333,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 300.0, 155.0, 278.0, 64.0 ],
+					"patching_rect" : [ 555.0, 363.0, 278.0, 64.0 ],
 					"text" : "Drop in an 'oopsy.patch' / 'oopsy.field' / 'oopsy.petal' etc. bpatcher in any Max patch with gen~ objects. Send it a bang (or save the patch) to compile!"
 				}
 
@@ -341,7 +353,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"offset" : [ 0.0, 0.0 ],
-					"patching_rect" : [ 129.0, 155.0, 169.0, 128.0 ],
+					"patching_rect" : [ 384.0, 363.0, 169.0, 128.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -358,7 +370,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 5,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -838,9 +850,9 @@
  ]
 					}
 ,
-					"patching_rect" : [ 13.0, 261.0, 88.0, 22.0 ],
+					"patching_rect" : [ 209.0, 135.0, 88.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"exportfolder" : "Macintosh HD:/Users/mckinley/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max/",
+						"exportfolder" : "LEGACY:/Users/tony/Documents/Hackathon-Shared-CMCU-Repository/MAX/",
 						"exportname" : "soup"
 					}
 ,
@@ -874,7 +886,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"order" : 0,
+					"order" : 1,
 					"source" : [ "obj-1", 0 ]
 				}
 
@@ -890,8 +902,15 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
-					"order" : 1,
+					"order" : 0,
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-18", 0 ]
 				}
 
 			}
@@ -930,14 +949,14 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "changeInDistance.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
+				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "consistencyScore.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
+				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
@@ -945,34 +964,34 @@
 , 			{
 				"name" : "oopsy.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/patchers",
-				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/patchers",
+				"patcherrelativepath" : "../../Max 8/Packages/oopsy/patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "oopsy.node4max.js",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/javascript",
-				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/javascript",
+				"patcherrelativepath" : "../../Max 8/Packages/oopsy/javascript",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "oopsy.snoop.js",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/javascript",
-				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/javascript",
+				"patcherrelativepath" : "../../Max 8/Packages/oopsy/javascript",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "xyTest.maxpat",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
+				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "xyToDistance.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
+				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1

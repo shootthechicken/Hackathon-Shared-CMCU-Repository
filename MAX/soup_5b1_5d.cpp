@@ -60,9 +60,9 @@ typedef struct State {
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
-			int gte_3 = (in1 >= ((int)20));
-			int switch_4 = (gte_3 ? ((int)1) : ((int)-20));
-			t_sample out1 = switch_4;
+			int gte_82 = (in1 >= ((int)20));
+			int switch_83 = (gte_82 ? ((int)1) : ((int)-20));
+			t_sample out1 = switch_83;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			

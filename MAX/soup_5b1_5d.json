@@ -1,6 +1,6 @@
 {
 	"class": "Module",
-	"id": "node_29893",
+	"id": "node_3574",
 	"inlets": [
 		{
 			"assist": "in1",
@@ -20,110 +20,110 @@
 	},
 	"block": {
 		"class": "Block",
-		"id": "node_29918",
+		"id": "node_3599",
 		"children": [
 			{
 				"class": "Statement",
-				"id": "node_29903",
+				"id": "node_3584",
 				"inputs": [
 					{
 						"class": "Expression",
-						"id": "node_29904",
+						"id": "node_3585",
 						"operator": "gte",
 						"inputs": [
 							{
 								"class": "Variable",
-								"id": "node_29905",
+								"id": "node_3586",
 								"name": "in1",
 								"type": "signal t_sample",
-								"source": "box: [gte $in1 20] => gte_3"
+								"source": "box: [gte $in1 20] => gte_82"
 							},
 							{
 								"class": "Constant",
-								"id": "node_29906",
+								"id": "node_3587",
 								"value": "20",
 								"eval": 20,
 								"type": "constant int",
-								"source": "box: [gte $in1 20] => gte_3"
+								"source": "box: [gte $in1 20] => gte_82"
 							}
 						],
 						"attributes": {
 							
 						},
 						"type": "signal int",
-						"source": "box: [gte $in1 20] => gte_3"
+						"source": "box: [gte $in1 20] => gte_82"
 					}
 				],
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_29907",
-						"name": "gte_3",
+						"id": "node_3588",
+						"name": "gte_82",
 						"type": "signal int",
-						"source": "box: [gte $in1 20] => gte_3"
+						"source": "box: [gte $in1 20] => gte_82"
 					}
 				],
-				"source": "box: [gte $in1 20] => gte_3"
+				"source": "box: [gte $in1 20] => gte_82"
 			},
 			{
 				"class": "Statement",
-				"id": "node_29908",
+				"id": "node_3589",
 				"inputs": [
 					{
 						"class": "Expression",
-						"id": "node_29909",
+						"id": "node_3590",
 						"operator": "switch",
 						"inputs": [
 							{
 								"class": "Variable",
-								"id": "node_29910",
-								"name": "gte_3",
+								"id": "node_3591",
+								"name": "gte_82",
 								"type": "signal int",
-								"source": "box: [switch $in1 $in2 $in3] => switch_4"
+								"source": "box: [switch $in1 $in2 $in3] => switch_83"
 							},
 							{
 								"class": "Constant",
-								"id": "node_29921",
+								"id": "node_3602",
 								"value": 1,
 								"eval": 1,
 								"type": "constant int",
-								"source": "box: [switch $in1 $in2 $in3] => switch_4"
+								"source": "box: [switch $in1 $in2 $in3] => switch_83"
 							},
 							{
 								"class": "Constant",
-								"id": "node_29922",
+								"id": "node_3603",
 								"value": -20,
 								"eval": -20,
 								"type": "constant int",
-								"source": "box: [switch $in1 $in2 $in3] => switch_4"
+								"source": "box: [switch $in1 $in2 $in3] => switch_83"
 							}
 						],
 						"attributes": {
 							
 						},
 						"type": "signal int",
-						"source": "box: [switch $in1 $in2 $in3] => switch_4"
+						"source": "box: [switch $in1 $in2 $in3] => switch_83"
 					}
 				],
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_29913",
-						"name": "switch_4",
+						"id": "node_3594",
+						"name": "switch_83",
 						"type": "signal int",
-						"source": "box: [switch $in1 $in2 $in3] => switch_4"
+						"source": "box: [switch $in1 $in2 $in3] => switch_83"
 					}
 				],
-				"source": "box: [switch $in1 $in2 $in3] => switch_4"
+				"source": "box: [switch $in1 $in2 $in3] => switch_83"
 			},
 			{
 				"class": "Statement",
-				"id": "node_29914",
+				"id": "node_3595",
 				"inputs": [
 					{
 						"class": "Variable",
-						"id": "node_29915",
-						"name": "switch_4",
+						"id": "node_3596",
+						"name": "switch_83",
 						"type": "signal int",
 						"source": "box: [out 1 $in1] => "
 					}
@@ -131,7 +131,7 @@
 				"outputs": [
 					{
 						"class": "Variable",
-						"id": "node_29916",
+						"id": "node_3597",
 						"name": "out1",
 						"type": "signal t_sample",
 						"source": "box: [out 1 $in1] => "
@@ -141,5 +141,5 @@
 			}
 		]
 	},
-	"source": "patcher: gen.patcher 0x10b18ee70 graph 0x600001367490"
+	"source": "patcher: gen.patcher 0x7fa15ffbb330 graph 0x6080002ddba0"
 }
