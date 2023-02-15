@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 5,
-			"revision" : 1,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 244.0, 173.0, 1162.0, 770.0 ],
+		"rect" : [ 99.0, 79.0, 568.0, 770.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,13 +40,95 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-29",
+					"maxclass" : "ezdac~",
+					"numinlets" : 2,
+					"numoutlets" : 0,
+					"patching_rect" : [ 206.5, 372.5, 94.0, 94.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-28",
+					"lastchannelcount" : 0,
+					"maxclass" : "live.gain~",
+					"numinlets" : 2,
+					"numoutlets" : 5,
+					"outlettype" : [ "signal", "signal", "", "float", "list" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 103.0, 321.0, 48.0, 136.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_longname" : "live.gain~",
+							"parameter_mmax" : 6.0,
+							"parameter_mmin" : -70.0,
+							"parameter_shortname" : "live.gain~",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 4
+						}
+
+					}
+,
+					"varname" : "live.gain~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-24",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 324.0, 226.0, 43.0, 22.0 ],
+					"text" : "r JoyY"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-23",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 154.5, 177.0, 57.5, 22.0 ],
+					"text" : "s JoyY"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-22",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 90.0, 177.0, 63.0, 22.0 ],
+					"text" : "s JoyX"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-21",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 89.0, 226.0, 43.0, 22.0 ],
+					"text" : "r JoyX"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-18",
 					"maxclass" : "button",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 51.0, 135.0, 70.0, 70.0 ]
+					"patching_rect" : [ 90.0, 105.0, 70.0, 70.0 ]
 				}
 
 			}
@@ -61,7 +143,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 340.0, 200.0, 56.0, 22.0 ],
+					"patching_rect" : [ 323.5, 321.0, 56.0, 22.0 ],
 					"sig" : 0.0
 				}
 
@@ -77,7 +159,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 270.0, 200.0, 56.0, 22.0 ],
+					"patching_rect" : [ 265.25, 321.0, 56.0, 22.0 ],
 					"sig" : 0.0
 				}
 
@@ -90,7 +172,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 123.0, 183.0, 50.0, 22.0 ]
+					"patching_rect" : [ 162.0, 129.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -102,7 +184,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 123.0, 159.0, 50.0, 22.0 ]
+					"patching_rect" : [ 162.0, 153.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -117,7 +199,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 199.0, 200.0, 56.0, 22.0 ],
+					"patching_rect" : [ 206.5, 321.0, 56.0, 22.0 ],
 					"sig" : 0.0
 				}
 
@@ -129,7 +211,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 4,
 					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 123.0, 135.0, 50.5, 22.0 ],
+					"patching_rect" : [ 162.0, 105.0, 50.5, 22.0 ],
 					"text" : "xyTest"
 				}
 
@@ -186,7 +268,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"offset" : [ 0.0, 0.0 ],
-					"patching_rect" : [ 384.0, 363.0, 169.0, 128.0 ],
+					"patching_rect" : [ 238.0, 76.0, 169.0, 128.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -203,13 +285,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 5,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 806.0, 153.0, 600.0, 450.0 ],
+						"rect" : [ 736.0, 79.0, 887.0, 559.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -238,6 +320,17 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-18",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 233.0, 457.0, 100.0, 22.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-32",
 									"maxclass" : "newobj",
@@ -362,7 +455,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 306.0, 92.0, 110.0, 22.0 ],
+									"patching_rect" : [ 531.0, 326.0, 110.0, 22.0 ],
 									"text" : "r accelerationValue"
 								}
 
@@ -374,7 +467,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 164.0, 92.0, 78.0, 22.0 ],
+									"patching_rect" : [ 389.0, 326.0, 78.0, 22.0 ],
 									"text" : "r speedValue"
 								}
 
@@ -409,7 +502,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 33.0, 184.0, 80.0, 22.0 ],
+									"patching_rect" : [ 33.0, 178.0, 80.0, 22.0 ],
 									"text" : "s speedValue"
 								}
 
@@ -420,7 +513,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 164.0, 185.0, 112.0, 22.0 ],
+									"patching_rect" : [ 389.0, 419.0, 112.0, 22.0 ],
 									"text" : "s accelerationValue"
 								}
 
@@ -431,7 +524,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 306.0, 185.0, 47.0, 22.0 ],
+									"patching_rect" : [ 531.0, 419.0, 47.0, 22.0 ],
 									"text" : "s score"
 								}
 
@@ -476,7 +569,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 306.0, 138.0, 103.0, 22.0 ],
+									"patching_rect" : [ 531.0, 372.0, 103.0, 22.0 ],
 									"text" : "consistencyScore"
 								}
 
@@ -488,7 +581,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 164.0, 138.0, 105.0, 22.0 ],
+									"patching_rect" : [ 389.0, 372.0, 105.0, 22.0 ],
 									"text" : "changeInDistance"
 								}
 
@@ -683,13 +776,14 @@
  ]
 					}
 ,
-					"patching_rect" : [ 209.0, 135.0, 88.0, 22.0 ],
+					"patching_rect" : [ 89.0, 258.0, 254.0, 22.0 ],
+					"presentation_linecount" : 3,
 					"saved_object_attributes" : 					{
-						"exportfolder" : "Macintosh HD:/Users/mckinley/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max/",
+						"exportfolder" : "LEGACY:/Users/tony/Documents/Hackathon-Shared-CMCU-Repository/MAX/",
 						"exportname" : "soup"
 					}
 ,
-					"text" : "gen~",
+					"text" : "gen~ @comment main",
 					"varname" : "soup"
 				}
 
@@ -711,7 +805,6 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-12", 0 ],
-					"order" : 1,
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -719,24 +812,21 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"order" : 1,
 					"source" : [ "obj-1", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-5", 1 ],
-					"order" : 0,
-					"source" : [ "obj-1", 1 ]
+					"destination" : [ "obj-23", 0 ],
+					"source" : [ "obj-12", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-5", 0 ],
-					"order" : 0,
-					"source" : [ "obj-1", 0 ]
+					"destination" : [ "obj-22", 0 ],
+					"source" : [ "obj-13", 0 ]
 				}
 
 			}
@@ -749,8 +839,50 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-21", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 1 ],
+					"source" : [ "obj-24", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-29", 1 ],
+					"source" : [ "obj-28", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-29", 0 ],
+					"source" : [ "obj-28", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
 					"source" : [ "obj-5", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-28", 1 ],
+					"source" : [ "obj-5", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-28", 0 ],
+					"source" : [ "obj-5", 0 ]
 				}
 
 			}
@@ -770,6 +902,7 @@
 			}
  ],
 		"parameters" : 		{
+			"obj-28" : [ "live.gain~", "live.gain~", 0 ],
 			"obj-9::obj-32" : [ "live.text[2]", "FILTER", 0 ],
 			"obj-9::obj-33" : [ "live.text[1]", "FILTER", 0 ],
 			"obj-9::obj-34" : [ "live.text[3]", "FILTER", 0 ],
@@ -782,14 +915,14 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "changeInDistance.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
+				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "consistencyScore.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
+				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
@@ -797,34 +930,34 @@
 , 			{
 				"name" : "oopsy.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/patchers",
-				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/patchers",
+				"patcherrelativepath" : "../../Max 8/Packages/oopsy/patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "oopsy.node4max.js",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/javascript",
-				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/javascript",
+				"patcherrelativepath" : "../../Max 8/Packages/oopsy/javascript",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "oopsy.snoop.js",
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/javascript",
-				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/javascript",
+				"patcherrelativepath" : "../../Max 8/Packages/oopsy/javascript",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "xyTest.maxpat",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
+				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "xyToDistance.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/max",
+				"bootpath" : "~/Documents/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1

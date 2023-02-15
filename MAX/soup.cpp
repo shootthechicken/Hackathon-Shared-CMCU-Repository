@@ -104,6 +104,7 @@ typedef struct State {
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
+<<<<<<< Updated upstream
 			t_sample xValue_75 = (m_JoyX_1 + in1);
 			t_sample yValue_74 = (m_JoyY_2 + in2);
 			t_sample phasor_100 = __m_phasor_3(((int)2), samples_to_seconds);
@@ -133,8 +134,39 @@ typedef struct State {
 			int eq_117 = (abs_89 == ((t_sample)0.001));
 			int switch_80 = (eq_117 ? ((int)1) : ((int)0));
 			__m_count_15 = ((switch_80 + switch_87) ? 0 : (fixdenorm(__m_count_15 + ((int)1))));
+=======
+			t_sample xValue_135 = (in1 + m_JoyX_1);
+			t_sample yValue_134 = (in2 + m_JoyY_2);
+			t_sample phasor_141 = __m_phasor_3(((int)2), samples_to_seconds);
+			t_sample sah_150 = __m_sah_4(xValue_135, phasor_141, ((t_sample)0.5));
+			t_sample phasor_140 = __m_phasor_5(((int)2), samples_to_seconds);
+			t_sample sah_149 = __m_sah_6(xValue_135, phasor_140, ((t_sample)0.5));
+			t_sample sub_148 = (sah_150 - sah_149);
+			t_sample pow_147 = safepow(sub_148, ((int)2));
+			t_sample phasor_144 = __m_phasor_7(((int)2), samples_to_seconds);
+			t_sample sah_154 = __m_sah_8(yValue_134, phasor_144, ((t_sample)0.5));
+			t_sample phasor_142 = __m_phasor_9(((int)2), samples_to_seconds);
+			t_sample sah_153 = __m_sah_10(yValue_134, phasor_142, ((t_sample)0.5));
+			t_sample sub_152 = (sah_154 - sah_153);
+			t_sample pow_151 = safepow(sub_152, ((int)2));
+			t_sample add_146 = (pow_147 + pow_151);
+			t_sample sqrt_145 = sqrt(add_146);
+			t_sample out3 = sqrt_145;
+			t_sample phasor_114 = __m_phasor_11(((int)1), samples_to_seconds);
+			t_sample sah_111 = __m_sah_12(sqrt_145, phasor_114, ((t_sample)0.5));
+			t_sample phasor_113 = __m_phasor_13(((int)1), samples_to_seconds);
+			t_sample sah_110 = __m_sah_14(sqrt_145, phasor_113, ((t_sample)0.5));
+			t_sample sub_109 = (sah_111 - sah_110);
+			t_sample abs_108 = fabs(sub_109);
+			t_sample out4 = abs_108;
+			int gte_105 = (abs_108 >= ((int)50));
+			int switch_106 = (gte_105 ? ((int)1) : ((int)0));
+			int eq_98 = (abs_108 == ((int)0));
+			int switch_99 = (eq_98 ? ((int)1) : ((int)0));
+			__m_count_15 = ((switch_99 + switch_106) ? 0 : (fixdenorm(__m_count_15 + ((int)1))));
+>>>>>>> Stashed changes
 			int carry_16 = 0;
-			int count_reset_18 = (switch_80 + switch_87);
+			int count_reset_18 = (switch_99 + switch_106);
 			if ((count_reset_18 != 0)) {
 				__m_count_15 = 0;
 				__m_carry_17 = 0;
@@ -146,16 +178,16 @@ typedef struct State {
 				carry_16 = 1;
 				
 			};
-			int counter_81 = __m_count_15;
-			int counter_82 = carry_16;
-			int counter_83 = __m_carry_17;
-			t_sample out5 = counter_83;
-			int mul_67 = (counter_83 * ((int)200));
-			__m_cycle_20.freq(mul_67);
-			t_sample cycle_65 = __m_cycle_20(__sinedata);
-			t_sample cycleindex_66 = __m_cycle_20.phase();
-			t_sample out1 = cycle_65;
-			t_sample out2 = cycle_65;
+			int counter_100 = __m_count_15;
+			int counter_101 = carry_16;
+			int counter_102 = __m_carry_17;
+			t_sample out5 = counter_102;
+			int mul_86 = (counter_102 * ((int)200));
+			__m_cycle_20.freq(mul_86);
+			t_sample cycle_84 = __m_cycle_20(__sinedata);
+			t_sample cycleindex_85 = __m_cycle_20.phase();
+			t_sample out2 = cycle_84;
+			t_sample out1 = cycle_84;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
