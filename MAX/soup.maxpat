@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 369.0, 87.0, 636.0, 677.0 ],
+		"rect" : [ 34.0, 189.0, 636.0, 677.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -284,7 +284,7 @@
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 570.0, 139.0, 529.0, 674.0 ],
+						"rect" : [ 409.0, 153.0, 529.0, 674.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -313,6 +313,41 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-37",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 148.669994397163464, 512.0, 35.0, 22.0 ],
+									"text" : "out 1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-36",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 198.0, 376.999998331069946, 52.0, 22.0 ],
+									"text" : "r yValue"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-35",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 185.329999046325611, 344.999998331069946, 52.0, 22.0 ],
+									"text" : "r xValue"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-34",
 									"maxclass" : "newobj",
@@ -380,7 +415,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 261.329999046325611, 359.999998331069946, 45.0, 22.0 ],
+									"patching_rect" : [ 130.329999046325611, 344.999998331069946, 45.0, 22.0 ],
 									"text" : "r score"
 								}
 
@@ -392,7 +427,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 133.329999046325611, 359.999998331069946, 112.0, 22.0 ],
+									"patching_rect" : [ 68.466664481163022, 376.999998331069946, 112.0, 22.0 ],
 									"text" : "r accelerationValue"
 								}
 
@@ -404,7 +439,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 44.666664481163025, 359.999998331069946, 78.0, 22.0 ],
+									"patching_rect" : [ 44.666664481163025, 344.999998331069946, 78.0, 22.0 ],
 									"text" : "r speedValue"
 								}
 
@@ -545,9 +580,9 @@
 								"box" : 								{
 									"id" : "obj-57",
 									"maxclass" : "newobj",
-									"numinlets" : 4,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
 									"patching_rect" : [ 44.666664481163025, 442.5, 138.0, 22.0 ],
 									"text" : "synthmix"
 								}
@@ -571,17 +606,6 @@
 ,
 									"text" : "Display Values in wrapper",
 									"textcolor" : [ 0.929411764705882, 0.941176470588235, 0.956862745098039, 1.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-53",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 163.666664481163025, 512.0, 35.0, 22.0 ],
-									"text" : "out 2"
 								}
 
 							}
@@ -972,22 +996,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-31", 0 ],
-									"order" : 1,
-									"source" : [ "obj-17", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-32", 0 ],
-									"order" : 0,
-									"source" : [ "obj-17", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
 									"source" : [ "obj-18", 0 ]
 								}
@@ -1068,6 +1076,36 @@
 								"patchline" : 								{
 									"destination" : [ "obj-17", 5 ],
 									"source" : [ "obj-34", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-57", 3 ],
+									"source" : [ "obj-35", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-57", 4 ],
+									"source" : [ "obj-36", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-37", 0 ],
+									"order" : 0,
+									"source" : [ "obj-57", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-52", 0 ],
+									"order" : 1,
+									"source" : [ "obj-57", 0 ]
 								}
 
 							}
@@ -1267,6 +1305,13 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "additiveLevels.gendsp",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"patcherrelativepath" : ".",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "changeInDistance.gendsp",
 				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
@@ -1275,6 +1320,20 @@
 			}
 , 			{
 				"name" : "consistencyScore.gendsp",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"patcherrelativepath" : ".",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "fmtest.gendsp",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"patcherrelativepath" : ".",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "noiseMaker.gendsp",
 				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
