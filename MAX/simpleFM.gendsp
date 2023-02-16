@@ -45,8 +45,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 132.0, 33.0, 22.0 ],
-					"text" : "* 50."
+					"patching_rect" : [ 303.0, 132.0, 47.0, 22.0 ],
+					"text" : "* 5000."
 				}
 
 			}
@@ -131,30 +131,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 160.0, 81.0, 29.0, 22.0 ],
 					"text" : "240"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-7",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 294.0, 40.0, 28.0, 22.0 ],
-					"text" : "in 3"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-6",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 236.0, 40.0, 28.0, 22.0 ],
-					"text" : "in 2"
 				}
 
 			}
