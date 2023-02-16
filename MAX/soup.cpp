@@ -33,39 +33,48 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 // The State struct contains all the state and procedures for the gendsp kernel
 typedef struct State {
 	CommonState __commonstate;
-	Phasor __m_phasor_8;
-	Phasor __m_phasor_12;
-	Phasor __m_phasor_4;
-	Phasor __m_phasor_10;
 	Phasor __m_phasor_6;
+	Phasor __m_phasor_4;
+	Phasor __m_phasor_8;
+	Phasor __m_phasor_10;
+	Phasor __m_phasor_12;
 	Phasor __m_phasor_14;
-	Sah __m_sah_5;
 	Sah __m_sah_11;
-	Sah __m_sah_13;
 	Sah __m_sah_7;
-	Sah __m_sah_15;
 	Sah __m_sah_9;
+	Sah __m_sah_15;
+	Sah __m_sah_13;
+	Sah __m_sah_5;
+	SineCycle __m_cycle_25;
+	SineCycle __m_cycle_31;
+	SineCycle __m_cycle_26;
+	SineCycle __m_cycle_30;
+	SineCycle __m_cycle_28;
+	SineCycle __m_cycle_29;
+	SineCycle __m_cycle_27;
 	SineCycle __m_cycle_24;
+	SineCycle __m_cycle_33;
+	SineCycle __m_cycle_32;
 	SineData __sinedata;
-	int __exception;
 	int vectorsize;
-	t_sample m_JoySwitch_1;
-	t_sample __m_count_20;
-	t_sample __m_carry_22;
-	t_sample m_JoyY_2;
-	t_sample __m_carry_18;
-	t_sample m_JoyX_3;
-	t_sample __m_count_16;
+	int __exception;
 	t_sample samplerate;
+	t_sample m_JoyX_1;
+	t_sample m_JoyY_2;
+	t_sample m_JoySwitch_3;
 	t_sample samples_to_seconds;
+	t_sample __m_carry_18;
+	t_sample __m_carry_22;
+	t_sample __m_count_16;
+	t_sample __m_count_20;
 	// re-initialize all member variables;
 	inline void reset(t_param __sr, int __vs) {
 		__exception = 0;
 		vectorsize = __vs;
 		samplerate = __sr;
-		m_JoySwitch_1 = ((int)0);
+		m_JoyX_1 = ((int)0);
 		m_JoyY_2 = ((int)0);
-		m_JoyX_3 = ((int)0);
+		m_JoySwitch_3 = ((int)0);
 		samples_to_seconds = (1 / samplerate);
 		__m_phasor_4.reset(0);
 		__m_sah_5.reset(0);
@@ -84,6 +93,15 @@ typedef struct State {
 		__m_count_20 = 0;
 		__m_carry_22 = 0;
 		__m_cycle_24.reset(samplerate, 0);
+		__m_cycle_25.reset(samplerate, 0);
+		__m_cycle_26.reset(samplerate, 0);
+		__m_cycle_27.reset(samplerate, 0);
+		__m_cycle_28.reset(samplerate, 0);
+		__m_cycle_29.reset(samplerate, 0);
+		__m_cycle_30.reset(samplerate, 0);
+		__m_cycle_31.reset(samplerate, 0);
+		__m_cycle_32.reset(samplerate, 0);
+		__m_cycle_33.reset(samplerate, 0);
 		genlib_reset_complete(this);
 		
 	};
@@ -106,15 +124,18 @@ typedef struct State {
 			
 		};
 		samples_to_seconds = (1 / samplerate);
-		int expr_936 = (m_JoySwitch_1 < ((t_sample)0.001));
+		int expr_936 = (m_JoySwitch_3 < ((t_sample)0.001));
+		t_sample add_513 = (m_JoyX_1 + ((t_sample)0.2));
+		t_sample sub_1012 = (add_513 - ((t_sample)0.2));
+		t_sample scale_1009 = ((safepow((sub_1012 * ((t_sample)1)), ((int)1)) * ((t_sample)0.8)) + ((t_sample)0.2));
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
 			t_sample phasor_437 = __m_phasor_4(((int)2), samples_to_seconds);
-			t_sample sah_446 = __m_sah_5(m_JoyX_3, phasor_437, ((t_sample)0.5));
+			t_sample sah_446 = __m_sah_5(m_JoyX_1, phasor_437, ((t_sample)0.5));
 			t_sample phasor_436 = __m_phasor_6(((int)2), samples_to_seconds);
-			t_sample sah_445 = __m_sah_7(m_JoyX_3, phasor_436, ((t_sample)0.5));
+			t_sample sah_445 = __m_sah_7(m_JoyX_1, phasor_436, ((t_sample)0.5));
 			t_sample sub_444 = (sah_446 - sah_445);
 			t_sample pow_443 = safepow(sub_444, ((int)2));
 			t_sample phasor_440 = __m_phasor_8(((int)2), samples_to_seconds);
@@ -170,13 +191,58 @@ typedef struct State {
 			int counter_395 = __m_carry_22;
 			int sub_392 = (counter_403 - counter_395);
 			t_sample out5 = sub_392;
-			int mul_911 = (sub_392 * ((int)100));
-			int add_774 = (mul_911 + ((int)2000));
-			__m_cycle_24.freq(add_774);
-			t_sample cycle_739 = __m_cycle_24(__sinedata);
-			t_sample cycleindex_740 = __m_cycle_24.phase();
-			t_sample out1 = cycle_739;
-			t_sample out2 = cycle_739;
+			t_sample expr_983 = (((sub_392 > ((int)2)) * ((int)1)) * ((t_sample)0.33333333333333));
+			t_sample expr_980 = (((sub_392 > ((int)5)) * ((int)1)) * ((t_sample)0.16666666666667));
+			t_sample expr_984 = (((sub_392 > ((int)1)) * ((int)1)) * ((t_sample)0.5));
+			t_sample expr_981 = (((sub_392 > ((int)4)) * ((int)1)) * ((t_sample)0.2));
+			t_sample expr_982 = (((sub_392 > ((int)3)) * ((int)1)) * ((t_sample)0.25));
+			int expr_985 = (sub_392 > ((int)0));
+			t_sample expr_979 = (((sub_392 > ((int)6)) * ((int)1)) * ((t_sample)0.14285714285714));
+			__m_cycle_24.freq(((int)40));
+			t_sample cycle_975 = __m_cycle_24(__sinedata);
+			t_sample cycleindex_976 = __m_cycle_24.phase();
+			__m_cycle_25.freq(((int)20480));
+			t_sample cycle_941 = __m_cycle_25(__sinedata);
+			t_sample cycleindex_942 = __m_cycle_25.phase();
+			t_sample mul_939 = (((int)0) * cycle_941);
+			__m_cycle_26.freq(((int)80));
+			t_sample cycle_973 = __m_cycle_26(__sinedata);
+			t_sample cycleindex_974 = __m_cycle_26.phase();
+			t_sample mul_959 = (expr_985 * cycle_973);
+			__m_cycle_27.freq(((int)160));
+			t_sample cycle_971 = __m_cycle_27(__sinedata);
+			t_sample cycleindex_972 = __m_cycle_27.phase();
+			t_sample mul_957 = (expr_984 * cycle_971);
+			__m_cycle_28.freq(((int)320));
+			t_sample cycle_969 = __m_cycle_28(__sinedata);
+			t_sample cycleindex_970 = __m_cycle_28.phase();
+			t_sample mul_955 = (expr_983 * cycle_969);
+			__m_cycle_29.freq(((int)640));
+			t_sample cycle_967 = __m_cycle_29(__sinedata);
+			t_sample cycleindex_968 = __m_cycle_29.phase();
+			t_sample mul_953 = (expr_982 * cycle_967);
+			__m_cycle_30.freq(((int)10240));
+			t_sample cycle_945 = __m_cycle_30(__sinedata);
+			t_sample cycleindex_946 = __m_cycle_30.phase();
+			t_sample mul_943 = (((int)0) * cycle_945);
+			__m_cycle_31.freq(((int)1280));
+			t_sample cycle_965 = __m_cycle_31(__sinedata);
+			t_sample cycleindex_966 = __m_cycle_31.phase();
+			t_sample mul_951 = (expr_981 * cycle_965);
+			__m_cycle_32.freq(((int)2560));
+			t_sample cycle_963 = __m_cycle_32(__sinedata);
+			t_sample cycleindex_964 = __m_cycle_32.phase();
+			t_sample mul_949 = (expr_980 * cycle_963);
+			__m_cycle_33.freq(((int)5120));
+			t_sample cycle_961 = __m_cycle_33(__sinedata);
+			t_sample cycleindex_962 = __m_cycle_33.phase();
+			t_sample mul_947 = (expr_979 * cycle_961);
+			t_sample gen_986 = (((((((((cycle_975 + mul_947) + mul_949) + mul_951) + mul_943) + mul_953) + mul_955) + mul_957) + mul_959) + mul_939);
+			t_sample noise_504 = noise();
+			t_sample mul_508 = (scale_1009 * noise_504);
+			t_sample gen_996 = (mul_508 + gen_986);
+			t_sample out1 = gen_996;
+			t_sample out2 = gen_996;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
@@ -188,14 +254,14 @@ typedef struct State {
 		return __exception;
 		
 	};
-	inline void set_JoySwitch(t_param _value) {
-		m_JoySwitch_1 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	inline void set_JoyX(t_param _value) {
+		m_JoyX_1 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	inline void set_JoyY(t_param _value) {
 		m_JoyY_2 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
-	inline void set_JoyX(t_param _value) {
-		m_JoyX_3 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	inline void set_JoySwitch(t_param _value) {
+		m_JoySwitch_3 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	
 } State;
@@ -251,8 +317,8 @@ void setparameter(CommonState *cself, long index, t_param value, void *ref) {
 void getparameter(CommonState *cself, long index, t_param *value) {
 	State *self = (State *)cself;
 	switch (index) {
-		case 0: *value = self->m_JoySwitch_1; break;
-		case 1: *value = self->m_JoyX_3; break;
+		case 0: *value = self->m_JoySwitch_3; break;
+		case 1: *value = self->m_JoyX_1; break;
 		case 2: *value = self->m_JoyY_2; break;
 		
 		default: break;
@@ -336,11 +402,11 @@ void *create(t_param sr, long vs) {
 	self->__commonstate.vs = vs;
 	self->__commonstate.params = (ParamInfo *)genlib_sysmem_newptr(3 * sizeof(ParamInfo));
 	self->__commonstate.numparams = 3;
-	// initialize parameter 0 ("m_JoySwitch_1")
+	// initialize parameter 0 ("m_JoySwitch_3")
 	pi = self->__commonstate.params + 0;
 	pi->name = "JoySwitch";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_JoySwitch_1;
+	pi->defaultvalue = self->m_JoySwitch_3;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -350,11 +416,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 1 ("m_JoyX_3")
+	// initialize parameter 1 ("m_JoyX_1")
 	pi = self->__commonstate.params + 1;
 	pi->name = "JoyX";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_JoyX_3;
+	pi->defaultvalue = self->m_JoyX_1;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
