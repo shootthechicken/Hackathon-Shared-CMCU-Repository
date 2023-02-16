@@ -126,8 +126,8 @@ typedef struct State {
 		samples_to_seconds = (1 / samplerate);
 		int expr_936 = (m_JoySwitch_3 < ((t_sample)0.001));
 		t_sample add_513 = (m_JoyX_1 + ((t_sample)0.2));
-		t_sample sub_1012 = (add_513 - ((t_sample)0.2));
-		t_sample scale_1009 = ((safepow((sub_1012 * ((t_sample)1)), ((int)1)) * ((t_sample)0.8)) + ((t_sample)0.2));
+		t_sample sub_1040 = (add_513 - ((t_sample)0.2));
+		t_sample scale_1037 = ((safepow((sub_1040 * ((t_sample)1)), ((int)1)) * ((t_sample)0.8)) + ((t_sample)0.2));
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
@@ -239,10 +239,10 @@ typedef struct State {
 			t_sample mul_947 = (expr_979 * cycle_961);
 			t_sample gen_986 = (((((((((cycle_975 + mul_947) + mul_949) + mul_951) + mul_943) + mul_953) + mul_955) + mul_957) + mul_959) + mul_939);
 			t_sample noise_504 = noise();
-			t_sample mul_508 = (scale_1009 * noise_504);
-			t_sample gen_996 = (mul_508 + gen_986);
-			t_sample out1 = gen_996;
-			t_sample out2 = gen_996;
+			t_sample mul_508 = (scale_1037 * noise_504);
+			t_sample gen_1024 = (mul_508 + gen_986);
+			t_sample out1 = gen_1024;
+			t_sample out2 = gen_1024;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
