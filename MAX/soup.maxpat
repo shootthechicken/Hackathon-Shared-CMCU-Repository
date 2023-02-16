@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 99.0, 87.0, 973.0, 677.0 ],
+		"rect" : [ 369.0, 87.0, 636.0, 677.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,22 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-11",
+					"maxclass" : "number~",
+					"mode" : 2,
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "signal", "float" ],
+					"patching_rect" : [ 396.0, 321.0, 56.0, 22.0 ],
+					"sig" : 0.0
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-12",
 					"linecount" : 2,
 					"maxclass" : "comment",
@@ -47,18 +63,6 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 396.0, 220.5, 83.0, 33.0 ],
 					"text" : "0 for Virtual \n1 for Physical"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-10",
-					"maxclass" : "number",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 323.5, 226.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -280,7 +284,7 @@
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 330.0, 87.0, 625.0, 866.0 ],
+						"rect" : [ 570.0, 139.0, 529.0, 674.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -309,6 +313,18 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-34",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 961.0, 510.0, 100.0, 22.0 ],
+									"text" : "param JoySwitch"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-19",
 									"maxclass" : "newobj",
@@ -401,7 +417,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 1153.466678500175476, 102.5, 110.66667103767395, 24.0 ],
+									"patching_rect" : [ 1153.166664481163025, 102.5, 53.66667103767395, 24.0 ],
 									"saved_attribute_attributes" : 									{
 										"textcolor" : 										{
 											"expression" : "themecolor.live_meter_bg"
@@ -619,7 +635,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 590.666670560836792, 102.5, 110.66667103767395, 24.0 ],
+									"patching_rect" : [ 590.666670560836792, 102.5, 56.333329439163208, 24.0 ],
 									"saved_attribute_attributes" : 									{
 										"textcolor" : 										{
 											"expression" : "themecolor.live_meter_bg"
@@ -693,7 +709,7 @@
 								"box" : 								{
 									"id" : "obj-17",
 									"maxclass" : "newobj",
-									"numinlets" : 5,
+									"numinlets" : 6,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 670.136668665409161, 564.000002801418304, 69.0, 22.0 ],
@@ -1022,6 +1038,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
+									"midpoints" : [ 199.83332896232605, 242.0 ],
 									"source" : [ "obj-26", 0 ]
 								}
 
@@ -1049,15 +1066,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-52", 0 ],
-									"source" : [ "obj-57", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-53", 0 ],
-									"source" : [ "obj-57", 1 ]
+									"destination" : [ "obj-17", 5 ],
+									"source" : [ "obj-34", 0 ]
 								}
 
 							}
@@ -1300,6 +1310,13 @@
 			}
 , 			{
 				"name" : "synthmix.gendsp",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"patcherrelativepath" : ".",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "untitled.gendsp",
 				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
