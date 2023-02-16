@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 189.0, 636.0, 677.0 ],
+		"rect" : [ 175.0, 104.0, 636.0, 677.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -49,7 +49,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 396.0, 321.0, 56.0, 22.0 ],
+					"patching_rect" : [ 460.0, 321.0, 56.0, 22.0 ],
 					"sig" : 0.0
 				}
 
@@ -197,7 +197,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 323.5, 321.0, 56.0, 22.0 ],
+					"patching_rect" : [ 387.5, 321.0, 56.0, 22.0 ],
 					"sig" : 0.0
 				}
 
@@ -213,7 +213,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 265.25, 321.0, 56.0, 22.0 ],
+					"patching_rect" : [ 265.25, 321.0, 103.0, 22.0 ],
 					"sig" : 0.0
 				}
 
@@ -284,7 +284,7 @@
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 409.0, 153.0, 529.0, 674.0 ],
+						"rect" : [ 570.0, 139.0, 529.0, 674.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -313,6 +313,18 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-38",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1044.0, 57.5, 78.0, 22.0 ],
+									"text" : "r speedValue"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-37",
 									"maxclass" : "newobj",
@@ -354,8 +366,8 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 961.0, 510.0, 100.0, 22.0 ],
-									"text" : "param JoySwitch"
+									"patching_rect" : [ 961.0, 510.0, 77.0, 22.0 ],
+									"text" : "param Reset"
 								}
 
 							}
@@ -403,8 +415,8 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1148.0, 57.5, 100.0, 22.0 ],
-									"text" : "param JoySwitch"
+									"patching_rect" : [ 1148.0, 57.5, 77.0, 22.0 ],
+									"text" : "param Reset"
 								}
 
 							}
@@ -472,7 +484,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1024.13334321975708, 57.5, 110.0, 22.0 ],
+									"patching_rect" : [ 902.800007939338684, 57.5, 110.0, 22.0 ],
 									"text" : "r accelerationValue"
 								}
 
@@ -492,7 +504,7 @@
 								"box" : 								{
 									"id" : "obj-68",
 									"maxclass" : "newobj",
-									"numinlets" : 2,
+									"numinlets" : 3,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1024.13334321975708, 102.5, 103.0, 22.0 ],
@@ -581,8 +593,8 @@
 									"id" : "obj-57",
 									"maxclass" : "newobj",
 									"numinlets" : 6,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 44.666664481163025, 442.5, 138.0, 22.0 ],
 									"text" : "synthmix"
 								}
@@ -734,8 +746,8 @@
 									"id" : "obj-17",
 									"maxclass" : "newobj",
 									"numinlets" : 6,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 670.136668665409161, 564.000002801418304, 69.0, 22.0 ],
 									"text" : "soundTests"
 								}
@@ -996,6 +1008,22 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-31", 0 ],
+									"order" : 1,
+									"source" : [ "obj-17", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-32", 0 ],
+									"order" : 0,
+									"source" : [ "obj-17", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
 									"source" : [ "obj-18", 0 ]
 								}
@@ -1046,7 +1074,6 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
-									"midpoints" : [ 199.83332896232605, 242.0 ],
 									"source" : [ "obj-26", 0 ]
 								}
 
@@ -1095,6 +1122,13 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-68", 1 ],
+									"source" : [ "obj-38", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-37", 0 ],
 									"order" : 0,
 									"source" : [ "obj-57", 0 ]
@@ -1111,7 +1145,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-68", 1 ],
+									"destination" : [ "obj-68", 2 ],
 									"source" : [ "obj-6", 0 ]
 								}
 
@@ -1319,14 +1353,14 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "consistencyScore.gendsp",
+				"name" : "chordBuilder.gendsp",
 				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "fmtest.gendsp",
+				"name" : "consistencyScore.gendsp",
 				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",
@@ -1358,6 +1392,13 @@
 				"bootpath" : "~/Documents/Max 8/Packages/oopsy/javascript",
 				"patcherrelativepath" : "../../../Max 8/Packages/oopsy/javascript",
 				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "simpleFM.gendsp",
+				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
+				"patcherrelativepath" : ".",
+				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{

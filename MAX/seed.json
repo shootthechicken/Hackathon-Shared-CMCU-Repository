@@ -3,10 +3,6 @@
 	"som": "seed",
 	"audio": {"channels": 2},
 	"components": {
-		"JoySwitch": {
-			"component": "AnalogControl",
-			"pin": 15
-		},
 		"JoyX": {
 			"component": "AnalogControl",
 			"pin": 16
@@ -15,12 +11,9 @@
 			"component": "AnalogControl",
 			"pin": 17
 		},
-		"cvout": {
-			"component": "CVOuts"
-		},
-		"ResetIn": {
-			"component": "AnalogControl",
-			"pin": 19
+		"Reset": {
+			"component": "Switch",
+			"pin": 27
 		}
 	}
 }
