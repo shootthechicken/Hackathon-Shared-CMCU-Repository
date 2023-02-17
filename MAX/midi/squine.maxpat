@@ -40,6 +40,30 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 6,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 788.0, 110.0, 97.0, 22.0 ],
+					"text" : "scale 0 127 0. 1."
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "int", "int" ],
+					"patching_rect" : [ 788.0, 71.0, 47.0, 22.0 ],
+					"text" : "ctlin 95"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -92,7 +116,7 @@
 					"numinlets" : 6,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 775.0, 121.0, 105.0, 22.0 ],
+					"patching_rect" : [ 851.0, 211.0, 105.0, 22.0 ],
 					"text" : "scale 0 127 -90 -6"
 				}
 
@@ -104,7 +128,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
-					"patching_rect" : [ 775.0, 82.0, 47.0, 22.0 ],
+					"patching_rect" : [ 851.0, 172.0, 47.0, 22.0 ],
 					"text" : "ctlin 79"
 				}
 
@@ -1691,7 +1715,7 @@
 ,
 					"patching_rect" : [ 29.0, 250.0, 158.0, 29.0 ],
 					"saved_object_attributes" : 					{
-						"exportfolder" : "C:/Users/tamse/Documents/Max 8/Packages/oopsy/examples/",
+						"exportfolder" : "C:/Users/tamse/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX/midi/",
 						"exportname" : "squine"
 					}
 ,
@@ -1850,8 +1874,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-29", 0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-26", 0 ],
 					"source" : [ "obj-68", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-7", 0 ]
 				}
 
 			}
@@ -1871,7 +1909,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-29", 0 ],
+					"destination" : [ "obj-28", 0 ],
 					"source" : [ "obj-77", 0 ]
 				}
 
