@@ -402,7 +402,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 38.666664481163025, 106.0, 150.0, 33.0 ],
+									"patching_rect" : [ 38.666664481163025, 106.0, 151.0, 33.0 ],
 									"text" : "connect ins for virtual use, params for daisy",
 									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 								}
@@ -671,7 +671,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 590.666670560836792, 102.5, 56.333329439163208, 24.0 ],
+									"patching_rect" : [ 590.666670560836792, 102.5, 57.0, 24.0 ],
 									"saved_attribute_attributes" : 									{
 										"textcolor" : 										{
 											"expression" : "themecolor.live_meter_bg"
@@ -1410,13 +1410,6 @@
 			}
 , 			{
 				"name" : "synthmix.gendsp",
-				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
-				"patcherrelativepath" : ".",
-				"type" : "gDSP",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "untitled.gendsp",
 				"bootpath" : "~/Documents/GitHub/Hackathon-Shared-CMCU-Repository/MAX",
 				"patcherrelativepath" : ".",
 				"type" : "gDSP",

@@ -188,8 +188,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 57.0, 93.0, 207.0, 22.0 ],
-					"text" : "expr (0.015 >= in1) && (in2 >= 0.001)"
+					"patching_rect" : [ 57.0, 93.0, 201.0, 22.0 ],
+					"text" : "expr (0.01 >= in1) && (in2 >= 0.001)"
 				}
 
 			}
